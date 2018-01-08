@@ -39,6 +39,8 @@ import {
   MatTooltipModule,
   MatStepperModule,
 } from '@angular/material';
+import { DashboardModule } from "./dashboard/dashboard.module";
+import { CammonModule } from "./common/common.module";
 @NgModule({
   declarations: [
     AppComponent,
@@ -80,6 +82,8 @@ import {
     MatToolbarModule,
     MatTooltipModule,
     MatStepperModule,
+		DashboardModule,
+		CammonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
