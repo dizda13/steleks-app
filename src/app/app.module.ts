@@ -1,10 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { SideBar } from './app.directive';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppRoutingModule } from './app-routing.module';
+
 // import { MatSidenavModule } from '@angular/material';
 import {
   MatAutocompleteModule,
@@ -44,7 +45,6 @@ import { CammonModule } from "./common/common.module";
 @NgModule({
   declarations: [
     AppComponent,
-    SideBar
   ],
   imports: [
     BrowserModule,
@@ -83,7 +83,8 @@ import { CammonModule } from "./common/common.module";
     MatTooltipModule,
     MatStepperModule,
 		DashboardModule,
-		CammonModule
+		CammonModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

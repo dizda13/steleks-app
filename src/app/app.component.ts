@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import * as $ from 'jquery';
-import { OnInit, AfterViewInit } from '@angular/core/src/metadata/lifecycle_hooks';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +10,14 @@ import { OnInit, AfterViewInit } from '@angular/core/src/metadata/lifecycle_hook
 export class AppComponent implements AfterViewInit {
   showFiller = false;
   pokazi:boolean=false;
+  sidebarItems:string[]=[
+    "Steleks feed",
+    "Novosti",
+    "Događaji",
+    "Forum",
+    "Elektrijada",
+    "Moji materijali"
+  ]
   ngAfterViewInit(): void {
   }
   title = 'app';
