@@ -1,0 +1,26 @@
+.info-card {
+	margin: 5px;
+}
+
+mat-card .LargeImage {
+}
+
+div.SmallImage {
+	display: inline-block;
+	max-width: calc(60% - 48px);
+}
+
+.mat-card-image.SmallImage {
+	float: left;
+	width: calc(30% + 48px);
+	margin: 1%;
+	display: inline-block;
+}
+
+p.SmallImage {
+	display: inline-block;
+	vertical-align: top;
+	overflow-y: hidden;
+	max-height: 7em;
+}
+
