@@ -20,4 +20,12 @@ export class InfocardComponent implements OnInit {
 		return InfoCardStyle[this.model.getStyle()];
 	}
 
+	showContentImage() : boolean {
+		return this.model.getStyle() == InfoCardStyle.SmallImage;
+	}
+
+	showTopImage() : boolean {
+		return this.model.getStyle() == InfoCardStyle.LargeImage;
+	}
+
 }
