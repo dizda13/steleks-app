@@ -3,9 +3,11 @@
                  (closed)="events.push('close!')">
       Sidenav content
     </mat-sidenav>
+
   
     <mat-sidenav-content>
       <p><button mat-button (click)="sidenav.toggle()"><mat-icon>reorder</mat-icon></button></p>
+			<app-dashboard></app-dashboard>
     </mat-sidenav-content>
   </mat-sidenav-container>
   

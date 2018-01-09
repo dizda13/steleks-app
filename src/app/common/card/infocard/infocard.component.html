@@ -1,8 +1,8 @@
-<mat-card *ngIf="model" class="info-card">
-	<mat-card-title>{{model.title}}</mat-card-title>
-	<img *ngIf="imageLink" mat-card-image src="{{model.imageLink}}" alt="">
-	<mat-card-content>{{model.content}}</mat-card-content>
-	<mat-card-actions *ngIf="model.actions.length">
+<mat-card [ngClass]="getStyle()" *ngIf="model" class="info-card">
+	<img [ngClass]="getStyle()" *ngIf="model.imgLink" mat-card-image src="{{model.imgLink}}" alt=""/>
+	<mat-card-title [ngClass]="getStyle()">{{model.title}}</mat-card-title>
+	<mat-card-content [ngClass]="getStyle()">{{model.content}}</mat-card-content>
+	<mat-card-actions [ngClass]="getStyle()" *ngIf="model.actions.length">
 		<button mat-button *ngFor="let action of model.actions" (click)="action.onButtonClicked()">{{action.title}}</button>
 	</mat-card-actions>
 </mat-card>

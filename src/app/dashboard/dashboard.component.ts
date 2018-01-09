@@ -21,7 +21,7 @@ export class DashboardComponent implements OnInit {
 		let wrongAction: Action = new Action("Laz", this.printOutput);
 		actions.push(correctAction);
 		actions.push(wrongAction);
-		this.cards.push(new InfoCard("Dizda", "Da li je ovo istina?", "", actions));
+		this.cards.push(new InfoCard("Dizda", "Da li je ovo istina?", "https://cdn.zikvid.com/videos/aee4ecbbc253d5311f4b8d7a099086d5/thumbnails/thumb_5_1280x720.jpg", actions));
   }
 
 	printOutput(val: String) {
