@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard.component';
 import { MatCardModule } from "@angular/material";
 import { CammonModule } from "../common/common.module";
+import { DashboardRoutingModule } from './dashboard-routing.module';
 
 @NgModule({
   imports: [
@@ -11,7 +12,8 @@ import { CammonModule } from "../common/common.module";
 		CammonModule
   ],
 	exports: [
-		DashboardComponent
+		DashboardComponent,
+		DashboardRoutingModule
 	],
   declarations: [DashboardComponent]
 })

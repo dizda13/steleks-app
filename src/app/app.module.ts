@@ -40,8 +40,9 @@ import {
   MatTooltipModule,
   MatStepperModule,
 } from '@angular/material';
-import { DashboardModule } from "./dashboard/dashboard.module";
-import { CammonModule } from "./common/common.module";
+import { DashboardModule } from './dashboard/dashboard.module';
+import { CammonModule } from './common/common.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -82,8 +83,8 @@ import { CammonModule } from "./common/common.module";
     MatToolbarModule,
     MatTooltipModule,
     MatStepperModule,
-		DashboardModule,
-		CammonModule,
+    DashboardModule,
+    CammonModule,
     AppRoutingModule,
   ],
   providers: [],

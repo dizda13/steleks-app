@@ -10,7 +10,11 @@ import { MatButtonModule } from "@angular/material";
     MatCardModule,
 		MatButtonModule,
 	],
-	exports: [InfocardComponent],
-  declarations: [InfocardComponent]
+	exports: [
+		InfocardComponent, 
+	],
+	declarations: [
+		InfocardComponent, 
+	]
 })
 export class CammonModule { }

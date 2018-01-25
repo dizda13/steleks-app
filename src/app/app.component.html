@@ -14,7 +14,7 @@
     </div>
   </mat-sidenav>
 
-  <mat-sidenav-content>
+  <mat-sidenav-content style="text-align: center;">
     <mat-toolbar style="text-align:center">
       <button mat-button (click)="sidenav.toggle()" style="min-width:50px;padding:0%">
         <mat-icon>reorder</mat-icon>
@@ -22,6 +22,6 @@
       <h3 class="title">Naslov</h3>
       <img src="../assets/steleks-logo.png" style="width:60px; right:10px; position:absolute">
     </mat-toolbar>
-    <router-outlet></router-outlet>
+    <router-outlet style="padding: 3%;"></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

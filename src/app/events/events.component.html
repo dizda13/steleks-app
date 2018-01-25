@@ -1,0 +1,18 @@
+<mat-grid-list cols="4" rowHeight="90%" style="margin: 0% 2%;">
+  <mat-grid-tile [colspan]="1">
+    <div style="height: 100%;width:100%;">
+      <mat-calendar [selected]="selectedDate" (selectedChange)="selectedDate = $event"
+                    style="width:100%;display: inline-block;">
+      </mat-calendar>
+    </div>
+  </mat-grid-tile>
+
+  <mat-grid-tile [colspan]="3">
+    <virtual-scroll style="height:95%;width:100%; display: inline-block;" [items]="cards"
+                    (update)="viewPortItems = $event" (change)="onScroll($event)">
+      <info-card *ngFor="let card of viewPortItems" [model]="card"></info-card>
+      <mat-progress-bar *ngIf="isLoading" mode="indeterminate" style="margin: 30px 0px"></mat-progress-bar>
+    </virtual-scroll>
+
+  </mat-grid-tile>
+</mat-grid-list>
