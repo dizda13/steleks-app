@@ -30,6 +30,8 @@ export class DashboardComponent implements OnInit {
         'Dobrodošao Dino!',
         'Danas je 27. Januar i još uvijek nemaš pojma. Očekuje se još failova danas. Sa vama je vaš Steleks!'
       );
+    this.forumCards.push(new InfoCard('Dino Pisac', 'Napisano 93.\n\nTreba nekada slušati i ovu drugu muziku.'));
+    this.forumCards.push(new InfoCard('Dino Govornik', 'Izrečeno 18.\n\nTreba, treba. Nisam ja dzaba govorio'));
     const actions: Action[] = [];
     const correctAction: Action = new Action('Istina', this.printOutput);
     const wrongAction: Action = new Action('Laz', this.printOutput);
