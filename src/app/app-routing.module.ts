@@ -8,8 +8,8 @@ const routes: Routes = [
     // path: '',
     // component: DashboardComponent,
     // children: [
-      {path: 'novosti', loadChildren: './dashboard/dashboard.module#DashboardModule'},
-      {path: 'događaji', loadChildren: './events/events.module#EventsModule'},
+  {path: 'steleks-feed', loadChildren: './dashboard/dashboard.module#DashboardModule'},
+  {path: 'događaji', loadChildren: './events/events.module#EventsModule'}
   //   ]
   // }
 ];

@@ -1,3 +1,6 @@
+<div class="welcome-header">
+  <info-card [model]="headerCard"></info-card>
+</div>
 <div class="main-content content-pane">
 	<info-card *ngFor="let card of cards" [model]="card"></info-card>
 </div>

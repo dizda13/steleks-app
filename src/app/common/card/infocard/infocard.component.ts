@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { InfoCard, InfoCardStyle } from "./infocard.model";
+import {Component, Input, OnInit} from '@angular/core';
+import {InfoCard, InfoCardStyle} from './infocard.model';
 
 @Component({
   selector: 'info-card',
@@ -8,24 +8,25 @@ import { InfoCard, InfoCardStyle } from "./infocard.model";
 })
 export class InfocardComponent implements OnInit {
 
-	@Input() model: InfoCard;
+  @Input() model: InfoCard;
 
-  constructor() { }
-
-  ngOnInit() {
-		console.log("Style: " + this.getStyle());
+  constructor() {
   }
 
-	getStyle() : String {
-		return InfoCardStyle[this.model.getStyle()];
-	}
+  ngOnInit() {
+    console.log('Style: ' + this.getStyle());
+  }
 
-	showContentImage() : boolean {
-		return this.model.getStyle() == InfoCardStyle.SmallImage;
-	}
+  getStyle(): String {
+    return InfoCardStyle[this.model.getStyle()];
+  }
 
-	showTopImage() : boolean {
-		return this.model.getStyle() == InfoCardStyle.LargeImage;
-	}
+  showContentImage(): boolean {
+    return this.model.getStyle() === InfoCardStyle.SmallImage;
+  }
+
+  showTopImage(): boolean {
+    return this.model.getStyle() === InfoCardStyle.LargeImage;
+  }
 
 }
