@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges, ViewEncapsulation} from '@angular/core';
 import {InfoCard, InfoCardStyle} from './infocard.model';
 import {MarkdownService} from 'ngx-md';
 
@@ -7,7 +7,7 @@ import {MarkdownService} from 'ngx-md';
   templateUrl: './infocard.component.html',
   styleUrls: ['./infocard.component.css']
 })
-export class InfocardComponent implements OnInit {
+export class InfocardComponent implements OnInit, OnChanges {
 
   @Input() model: InfoCard;
 
@@ -19,6 +19,11 @@ export class InfocardComponent implements OnInit {
       return `<blockquote class="dizda-quote">${quote}</blockquote>`;
     };
     console.log('Style: ' + this.getStyle());
+  }
+
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('GOT SOME CHANGES');
   }
 
   getStyle(): String {

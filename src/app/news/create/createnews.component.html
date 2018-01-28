@@ -1,0 +1,33 @@
+<div class="create-news-container">
+  <mat-card>
+    <mat-tab-group (selectedTabChange)="onTabChanged()">
+      <mat-tab label="Edit">
+        <div class="news-edit">
+          <mat-form-field class="create-news-input">
+            <input matInput placeholder="Title" [(ngModel)]="news.title" [formControl]="titleFormControl">
+            <mat-error *ngIf="titleFormControl.hasError('required')">Field required</mat-error>
+          </mat-form-field>
+          <mat-form-field class="create-news-input">
+            <input matInput placeholder="Image url" [(ngModel)]="news.imgUrl" [formControl]="urlFormControl">
+            <mat-error *ngIf="urlFormControl.hasError('required')">Field required</mat-error>
+            <mat-error *ngIf="urlFormControl.hasError('pattern')">Invalid URL</mat-error>
+          </mat-form-field>
+          <mat-form-field class="create-news-input">
+            <textarea matInput placeholder="Content" matTextareaAutosize matAutosizeMinRows="5"
+                      matAutosizeMaxRows="100" [(ngModel)]="news.content" [formControl]="contentFormControl"></textarea>
+            <mat-error *ngIf="contentFormControl.hasError('required')">Field required</mat-error>
+          </mat-form-field>
+        </div>
+      </mat-tab>
+      <mat-tab label="Preview">
+        <div class="news-preview">
+          <info-card class="news-preview-card" [model]="generatedCard"></info-card>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+    <mat-card-actions>
+      <button mat-button (click)="onSaveClicked()">Save</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+

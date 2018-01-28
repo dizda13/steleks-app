@@ -55,3 +55,16 @@ blockquote.dizda-quote a{
   padding: 0 3px;
   color: #c76c0c;
 }
+
+.mat-input-element {
+  caret-color: #fea601; }
+
+.mat-focused .mat-form-field-label {
+  color: #fea601; }
+
+.mat-form-field-ripple {
+  background-color: #fea601; }
+
+.mat-tab-group.mat-background-primary .mat-tab-header, .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar, .mat-tab-group.mat-background-primary .mat-tab-links, .mat-tab-nav-bar.mat-background-primary .mat-tab-header, .mat-tab-nav-bar.mat-background-primary .mat-tab-links {
+  background-color: #fea601; }
+
