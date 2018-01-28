@@ -24,3 +24,7 @@ p.SmallImage {
 	max-height: 7em;
 }
 
+.mat-card-content-text {
+  white-space: pre-line;
+}
+

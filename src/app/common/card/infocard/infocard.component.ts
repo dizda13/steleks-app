@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import {InfoCard, InfoCardStyle} from './infocard.model';
+import {MarkdownService} from 'ngx-md';
 
 @Component({
   selector: 'info-card',
@@ -10,10 +11,13 @@ export class InfocardComponent implements OnInit {
 
   @Input() model: InfoCard;
 
-  constructor() {
+  constructor(private markdownService: MarkdownService) {
   }
 
   ngOnInit() {
+    this.markdownService.renderer.blockquote = (quote: string) => {
+      return `<blockquote class="dizda-quote">${quote}</blockquote>`;
+    };
     console.log('Style: ' + this.getStyle());
   }
 
@@ -27,6 +31,10 @@ export class InfocardComponent implements OnInit {
 
   showTopImage(): boolean {
     return this.model.getStyle() === InfoCardStyle.LargeImage;
+  }
+
+  useMarkdown(): boolean {
+    return this.model.usesMd();
   }
 
 }

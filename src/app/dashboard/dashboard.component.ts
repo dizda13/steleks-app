@@ -41,6 +41,7 @@ export class DashboardComponent implements OnInit {
     this.cards.push(
       new InfoCard('Dizda',
         'Da li je ovo istina?',
+        false,
         'https://cdn.zikvid.com/videos/aee4ecbbc253d5311f4b8d7a099086d5/thumbnails/thumb_5_1280x720.jpg',
         actions,
         InfoCardStyle.SmallImage

@@ -10,6 +10,7 @@ class InfoCard {
 
   constructor(private title: String,
               private content: String,
+              private useMd: boolean = false,
               private imgLink: String = '',
               private actions: Action[] = [],
               private style: InfoCardStyle = InfoCardStyle.LargeImage) {
@@ -17,6 +18,10 @@ class InfoCard {
 
   getStyle(): InfoCardStyle {
     return this.style;
+  }
+
+  usesMd(): boolean {
+    return this.useMd;
   }
 
 }

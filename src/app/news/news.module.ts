@@ -9,7 +9,7 @@ import {NewsComponent} from './news.component';
   imports: [
     CommonModule,
     MatCardModule,
-    CammonModule
+    CammonModule,
   ],
   declarations: [
     NewsComponent

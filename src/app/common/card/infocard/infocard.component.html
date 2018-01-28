@@ -4,8 +4,8 @@
 	<img [ngClass]="getStyle()" *ngIf="showContentImage()" mat-card-image src="{{model.imgLink}}" alt=""/>
 	<div [ngClass]="getStyle()">
 		<mat-card-title [ngClass]="getStyle()">{{model.title}}</mat-card-title>
-			<p [ngClass]="getStyle()">
-				{{model.content}}
+      <markdown *ngIf="useMarkdown()" [data]="model.content" class="mat-card-content-text"></markdown>
+			<p *ngIf="!useMarkdown()" [ngClass]="getStyle()" class="mat-card-content-text">
 			</p>
 		<mat-card-actions [ngClass]="getStyle()" *ngIf="model.actions.length">
 			<button mat-button *ngFor="let action of model.actions" (click)="action.onButtonClicked()">{{action.title}}</button>
