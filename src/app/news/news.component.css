@@ -1,8 +1,19 @@
 .news-card {
+  text-align: left;
+}
+
+mat-card-title {
+  text-align: center;
 }
 
 .news-content {
   width: 80%;
   text-align: center;
   display: inline-block;
+}
+
+@media (max-width: 600px) {
+  .news-content {
+    width: 100%;
+  }
 }

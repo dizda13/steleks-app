@@ -5,6 +5,10 @@
 mat-card .LargeImage {
 }
 
+.mat-card-title.LargeImage {
+  text-align: center;
+}
+
 div.SmallImage {
 	display: inline-block;
 	max-width: calc(60% - 48px);
