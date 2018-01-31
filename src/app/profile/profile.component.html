@@ -1,0 +1,38 @@
+<div class="profile-wrapper">
+  <div style="position: relative; overflow: hidden; height: 35%; margin: 0%">
+    <img class="imgCenter" src="https://dw9to29mmj727.cloudfront.net/properties/2016/526-SeriesThumb_OP_400x320.png">
+  </div>
+  <div class="profileImage">
+    <img style="width: 20%;height: unset; position: relative;3px solid white !important" class="circle"
+         src="http://www.davidbowie.com/sites/g/files/g2000002506/f/styles/large/public/201302/1973_sane_cvr_fix_800sq.jpg?itok=h-TUpMU9">
+  </div>
+
+  <form style="padding: 0% 15%;position: relative; top: -10%;" class="example-form">
+    <div class="edit-wrapper" [ngClass]="{'enable-edit-mode': !isInEditMode}" style="float:right;" (click)="changeViewMode()">
+      <mat-icon class="edit-mode">edit</mat-icon>
+    </div>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Ime" value="Dino" [disabled]="this.isInEditMode">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Prezime" value="Dizdarevic" [disabled]="this.isInEditMode">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Username" value="dizda13" [disabled]="this.isInEditMode">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Broj kartice" value="1234" [disabled]="true">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Broj telefona" value="061/123-456" [disabled]="this.isInEditMode">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Email" value="dino@dizda.com" [disabled]="this.isInEditMode">
+    </mat-form-field>
+    <div style="text-align: right" *ngIf="!this.isInEditMode">
+    <button mat-button style="padding:0%;">
+      Azuriraj
+    </button>
+    </div>
+  </form>
+</div>

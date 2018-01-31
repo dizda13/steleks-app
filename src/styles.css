@@ -68,3 +68,9 @@ blockquote.dizda-quote a{
 .mat-tab-group.mat-background-primary .mat-tab-header, .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar, .mat-tab-group.mat-background-primary .mat-tab-links, .mat-tab-nav-bar.mat-background-primary .mat-tab-header, .mat-tab-nav-bar.mat-background-primary .mat-tab-links {
   background-color: #fea601; }
 
+.circle {
+  border-radius: 50%;
+  width: 75px;
+  height:75px;
+  z-index: 10;
+}

@@ -42,10 +42,11 @@ import {
 } from '@angular/material';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { CammonModule } from './common/common.module';
+import {ProfileModule} from './profile/profile.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -86,6 +87,7 @@ import { CammonModule } from './common/common.module';
     DashboardModule,
     CammonModule,
     AppRoutingModule,
+    ProfileModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -9,7 +9,8 @@ const routes: Routes = [
     // children: [
   {path: 'steleks-feed', loadChildren: './dashboard/dashboard.module#DashboardModule'},
   {path: 'događaji', loadChildren: './events/events.module#EventsModule'},
-  {path: 'news', loadChildren: './news/news.module#NewsModule'}
+  {path: 'novosti', loadChildren: './news/news.module#NewsModule'},
+  {path: 'profile', loadChildren: './profile/profile.module#ProfileModule'},
   //   ]
   // }
 ];
@@ -19,4 +20,5 @@ const routes: Routes = [
   exports: [RouterModule],
   providers: []
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
