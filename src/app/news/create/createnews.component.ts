@@ -46,8 +46,6 @@ export class CreateNewsComponent implements OnInit {
   }
 
   onTabChanged() {
-    console.log('TAB SWITCHED');
-    console.log('title: ', this.news);
     this.generatedCard = this.news.toInfoCard();
   }
 }
