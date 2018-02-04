@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {NewsComponent} from './news.component';
 import {CreateNewsComponent} from './create/createnews.component';
+import {NewscontainerComponent} from './container/newscontainer.component';
 
 const routes: Routes = [
   // Fallback when no prior route is matched
-  { path: 'create', component: CreateNewsComponent },
-  { path: ':id', component: NewsComponent },
-  { path: '', redirectTo: 'create' },
+  { path: 'nova', component: CreateNewsComponent },
+  { path: ':id', component: NewscontainerComponent },
+  { path: '', redirectTo: 'nova' },
 ];
 
 @NgModule({

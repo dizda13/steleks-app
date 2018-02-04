@@ -15,7 +15,7 @@
   </mat-sidenav>
 
   <mat-sidenav-content style="text-align: center;">
-    <mat-toolbar style="text-align:center; box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.5);">
+    <mat-toolbar style="text-align:center; box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); position: fixed; z-index: 1;">
       <button mat-button (click)="sidenav.toggle()" style="min-width:50px;padding:0%;">
         <mat-icon>reorder</mat-icon>
       </button>
@@ -23,7 +23,9 @@
       <img src="../assets/steleks-logo.png" style="width:55px; right:10px; position:absolute">
     </mat-toolbar>
    <!--<div style="padding: 3%; ">-->
-    <router-outlet style="position: absolute;"></router-outlet>
+    <div style="margin-top: 80px; ">
+      <router-outlet style="position: absolute;"></router-outlet>
+    </div>
     <!--</div>-->
   </mat-sidenav-content>
 </mat-sidenav-container>

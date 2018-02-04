@@ -20,9 +20,7 @@
         </div>
       </mat-tab>
       <mat-tab label="Preview">
-        <div class="news-preview">
-          <info-card class="news-preview-card" [model]="generatedCard"></info-card>
-        </div>
+          <app-news [model]="news"></app-news>
       </mat-tab>
     </mat-tab-group>
     <mat-card-actions>

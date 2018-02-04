@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
-import {News} from './news.model';
+import {News} from '../news.model';
 
 @Component({
-  selector: 'app-news',
-  templateUrl: './news.component.html',
-  styleUrls: ['./news.component.css']
+  selector: 'app-newscontainer',
+  templateUrl: './newscontainer.component.html',
+  styleUrls: ['./newscontainer.component.css']
 })
-export class NewsComponent implements OnInit {
+export class NewscontainerComponent implements OnInit {
 
   news: News;
 
@@ -282,4 +282,5 @@ export class NewsComponent implements OnInit {
       'http://thehypedgeek.com/wp-content/uploads/2017/05/one-piece.jpg'
     );
   }
+
 }
