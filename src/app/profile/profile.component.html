@@ -3,7 +3,7 @@
     <img class="imgCenter" src="https://dw9to29mmj727.cloudfront.net/properties/2016/526-SeriesThumb_OP_400x320.png">
   </div>
   <div class="profileImage">
-    <img style="width: 20%;height: unset; position: relative;3px solid white !important" class="circle"
+    <img style="width: 20%;height: unset; position: relative;border: 3px solid white !important" class="circle"
          src="http://www.davidbowie.com/sites/g/files/g2000002506/f/styles/large/public/201302/1973_sane_cvr_fix_800sq.jpg?itok=h-TUpMU9">
   </div>
 
@@ -29,6 +29,7 @@
     <mat-form-field class="example-full-width">
       <input matInput placeholder="Email" value="dino@dizda.com" [disabled]="this.isInEditMode">
     </mat-form-field>
+    <p class="changePassword" mat-raised-button (click)="openDialog()">Promijeni lozinku</p>
     <div style="text-align: right" *ngIf="!this.isInEditMode">
     <button mat-button style="padding:0%;">
       Azuriraj

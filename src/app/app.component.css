@@ -29,6 +29,15 @@
   position: absolute;
   top: 50px;
   left: 25px;
+  cursor: pointer;
+}
+
+.userData:hover{
+  transform: scale(1.1);
+}
+
+.userData:focus{
+  outline: none;
 }
 
 .username{

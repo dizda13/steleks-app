@@ -10,7 +10,7 @@ const routes: Routes = [
   {path: 'steleks-feed', loadChildren: './dashboard/dashboard.module#DashboardModule'},
   {path: 'događaji', loadChildren: './events/events.module#EventsModule'},
   {path: 'novosti', loadChildren: './news/news.module#NewsModule'},
-  {path: 'profile', loadChildren: './profile/profile.module#ProfileModule'},
+  {path: 'profil', loadChildren: './profile/profile.module#ProfileModule'},
   //   ]
   // }
 ];

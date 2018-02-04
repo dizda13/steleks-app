@@ -2,13 +2,13 @@
 
   <mat-sidenav #sidenav mode="over" [(opened)]="opened" (opened)="events.push('open!')" (closed)="events.push('close!')" style="width:240px;">
     <img class="sidebar-cover" src="https://i.ytimg.com/vi/lt0WQ8JzLz4/maxresdefault.jpg">
-    <div class="userData">
+    <div class="userData" routerLink="/profil" (click)="opened=false;">
       <img class="circle" src="http://www.davidbowie.com/sites/g/files/g2000002506/f/styles/large/public/201302/1973_sane_cvr_fix_800sq.jpg?itok=h-TUpMU9">
       <p class="username">Dizda13</p>
       <p class="email">ddizdarevi3@etf.unsa.ba</p>
     </div>
     <div>
-    <button mat-button *ngFor="let sidebarItem of this.sidebarItems" class="sideBarItems" [routerLink]="'/'+sidebarItem.toLowerCase().replace(' ','-')">
+    <button mat-button *ngFor="let sidebarItem of this.sidebarItems" class="sideBarItems" [routerLink]="'/'+sidebarItem.toLowerCase().replace(' ','-')" (click)="opened=false;">
       {{sidebarItem}}
     </button>
     </div>
