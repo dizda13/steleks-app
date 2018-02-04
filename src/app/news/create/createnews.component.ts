@@ -65,7 +65,7 @@ export class CreateNewsComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       console.log(result);
-      if (result.url) {
+      if (result && result.url) {
         this.news.imgUrl.push(result.url);
       }
       // this.animal = result;
