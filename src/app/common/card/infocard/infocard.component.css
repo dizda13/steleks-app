@@ -9,6 +9,14 @@ mat-card .LargeImage {
   text-align: center;
 }
 
+
+mat-card .Slideshow {
+}
+
+.mat-card-title.Slideshow {
+  text-align: center;
+}
+
 div.SmallImage {
 	display: inline-block;
 	max-width: calc(60% - 48px);

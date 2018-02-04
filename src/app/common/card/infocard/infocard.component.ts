@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges, ViewEncapsulation} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {InfoCard, InfoCardStyle} from './infocard.model';
 import {MarkdownService} from 'ngx-md';
 
@@ -36,6 +36,18 @@ export class InfocardComponent implements OnInit, OnChanges {
 
   showTopImage(): boolean {
     return this.model.getStyle() === InfoCardStyle.LargeImage;
+  }
+
+  showSlideShow(): boolean {
+    return this.model.getStyle() === InfoCardStyle.Slideshow;
+  }
+
+  getSingleImage(): String {
+    if (this.model.getImages().length === 0) {
+      return '';
+    } else {
+      return this.model.getImages()[0];
+    }
   }
 
   useMarkdown(): boolean {

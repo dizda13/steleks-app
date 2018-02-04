@@ -1,9 +1,9 @@
-import {InfoCard} from '../common/card/infocard/infocard.model';
+import {InfoCard, InfoCardStyle} from '../common/card/infocard/infocard.model';
 
 class News {
   constructor(private _title: String,
               private _content: String,
-              private _imgUrl: String) {
+              private _imgUrl: String[]) {
   }
 
   set title(value: String) {
@@ -14,7 +14,7 @@ class News {
     this._content = value;
   }
 
-  set imgUrl(value: String) {
+  set imgUrl(value: String[]) {
     this._imgUrl = value;
   }
 
@@ -26,8 +26,16 @@ class News {
     return this._content;
   }
 
-  get imgUrl(): String {
+  get imgUrl(): String[] {
     return this._imgUrl;
+  }
+
+  getStyle(): InfoCardStyle {
+    if (this._imgUrl.length < 2) {
+      return InfoCardStyle.LargeImage;
+    } else {
+      return InfoCardStyle.Slideshow;
+    }
   }
 
   public toInfoCard(): InfoCard {
@@ -35,7 +43,9 @@ class News {
       this._title,
       this._content,
       true,
-      this._imgUrl
+      this._imgUrl,
+      [],
+      this.getStyle()
     );
   }
 }

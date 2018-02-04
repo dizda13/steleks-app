@@ -1,0 +1,12 @@
+<h1>Promijeni lozinki</h1>
+<div mat-dialog-content>
+  <mat-form-field class="url-input">
+    <input matInput placeholder="Image url" [(ngModel)]="url" [formControl]="urlFormControl">
+    <mat-error *ngIf="urlFormControl.hasError('required')">Field required</mat-error>
+    <mat-error *ngIf="urlFormControl.hasError('pattern')">Invalid URL</mat-error>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Odustani</button>
+  <button mat-button (click)="onDoneClick()">Izaberi</button>
+</div>

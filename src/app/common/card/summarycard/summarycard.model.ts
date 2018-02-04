@@ -23,7 +23,7 @@ class SummaryCard extends InfoCard {
       infoStyle = InfoCardStyle.SmallImage;
     }
 
-    super(title, content, false, imgLink, actions, infoStyle);
+    super(title, content, false, [imgLink], actions, infoStyle);
   }
 
   getStyle(): InfoCardStyle {

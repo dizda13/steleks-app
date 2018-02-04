@@ -1,7 +1,8 @@
 <mat-card [ngClass]="getStyle()" *ngIf="model" class="info-card">
-	<img [ngClass]="getStyle()" *ngIf="showTopImage()" mat-card-image src="{{model.imgLink}}" alt=""/>
+  <slideshow [ngClass]="getStyle()" *ngIf="showSlideShow()" [imageUrls]="model.imgLinks"></slideshow>
+	<img [ngClass]="getStyle()" *ngIf="showTopImage()" mat-card-image src="{{getSingleImage()}}" alt=""/>
 	<mat-card-content [ngClass]="getStyle()">
-	<img [ngClass]="getStyle()" *ngIf="showContentImage()" mat-card-image src="{{model.imgLink}}" alt=""/>
+	<img [ngClass]="getStyle()" *ngIf="showContentImage()" mat-card-image src="{{getSingleImage()}}" alt=""/>
 	<div [ngClass]="getStyle()">
 		<mat-card-title [ngClass]="getStyle()">{{model.title}}</mat-card-title>
       <markdown *ngIf="useMarkdown()" [data]="model.content" class="mat-card-content-text"></markdown>
