@@ -57,8 +57,8 @@ export class CreateNewsComponent implements OnInit {
 
   onAddClicked() {
     const dialogRef = this.dialog.open(ImagemanagerComponent, {
-      width: '500px',
-      height: '300px',
+      width: '80%',
+      height: '70%',
       data: {}
     });
 

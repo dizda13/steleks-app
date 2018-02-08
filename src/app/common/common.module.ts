@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {InfocardComponent} from './card/infocard/infocard.component';
-import {MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule} from '@angular/material';
+import {MatButtonModule, MatCardModule, MatFormFieldModule, MatGridListModule, MatInputModule} from '@angular/material';
 import {MarkdownModule} from 'ngx-md';
 import {SlideshowModule} from 'ng-simple-slideshow';
 import { ImagemanagerComponent } from './imagemanager/imagemanager.component';
@@ -15,6 +15,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
+    MatGridListModule,
     FormsModule,
     SlideshowModule,
     MarkdownModule.forRoot(),

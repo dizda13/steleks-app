@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {NewsRoutingModule} from './news-routing.module';
 import {CammonModule} from '../common/common.module';
 import {
-  MatButtonModule, MatCardModule, MatDialogModule, MatFormFieldModule, MatGridListModule, MatInputModule,
+  MatButtonModule, MatCardModule, MatDialogModule, MatFormFieldModule, MatGridListModule, MatIconModule, MatInputModule,
   MatTabsModule
 } from '@angular/material';
 import {NewsComponent} from './display/news.component';
@@ -22,6 +22,7 @@ import {SlideshowModule} from 'ng-simple-slideshow';
     MatTabsModule,
     MatInputModule,
     MatButtonModule,
+    MatIconModule,
     SlideshowModule,
     MatDialogModule,
     MatGridListModule,

@@ -1,12 +1,23 @@
-<h1>Promijeni lozinki</h1>
+<h1>Upravljanje slikama</h1>
 <div mat-dialog-content>
+  <h3>Izaberi postojeću sliku</h3>
+  <mat-grid-list cols="5" rowHeight="2:1">
+    <mat-grid-tile *ngFor="let image of images; index as i">
+      <div class="grid-img-container" (click)="onImageSelected(i)">
+        <img class="grid-img" src="{{image.url}}">
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <h3>Dodaj novu sliku</h3>
   <mat-form-field class="url-input">
-    <input matInput placeholder="Image url" [(ngModel)]="url" [formControl]="urlFormControl">
-    <mat-error *ngIf="urlFormControl.hasError('required')">Field required</mat-error>
-    <mat-error *ngIf="urlFormControl.hasError('pattern')">Invalid URL</mat-error>
+    <input matInput placeholder="URL Slike" [(ngModel)]="url" [formControl]="urlFormControl">
+    <mat-error *ngIf="urlFormControl.hasError('required')">Obavezno polje</mat-error>
+    <mat-error *ngIf="urlFormControl.hasError('pattern')">URL nije validan</mat-error>
   </mat-form-field>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onAddClick()">Dodaj</button>
+  </div>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Odustani</button>
-  <button mat-button (click)="onDoneClick()">Izaberi</button>
 </div>

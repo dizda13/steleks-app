@@ -12,12 +12,12 @@
               <div class="grid-img-container" (click)="onRemoveClicked(i)">
                 <img class="grid-img" src="{{url}}">
                 <div class="grid-img-hover">
-                  <h1>Remove image</h1>
+                  <mat-icon color="primary">delete</mat-icon>
                 </div>
               </div>
             </mat-grid-tile>
-            <mat-grid-tile (click)="onAddClicked()">
-              <h1>Add image</h1>
+            <mat-grid-tile style="cursor: pointer" (click)="onAddClicked()">
+              <mat-icon color="primary">add_box</mat-icon>
             </mat-grid-tile>
           </mat-grid-list>
           <mat-form-field class="create-news-input">
