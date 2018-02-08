@@ -67,6 +67,7 @@ export class CreateNewsComponent implements OnInit {
       console.log(result);
       if (result && result.url) {
         this.news.imgUrl.push(result.url);
+        this.news.imgUrl = this.news.imgUrl.map(x => x);
       }
       // this.animal = result;
     });

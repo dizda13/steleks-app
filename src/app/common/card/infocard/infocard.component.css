@@ -40,3 +40,8 @@ p.SmallImage {
   white-space: pre-line;
 }
 
+slideshow {
+  height: 500px;
+  display: block;
+}
+
