@@ -64,3 +64,25 @@
   margin: 0;
 }
 
+.content-container {
+  margin-top: 80px;
+  height: 100%;
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media only screen and (max-width: 479px){
+  .content-container {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1440px){
+  .content-container {
+    width: 1152px;
+  }
+}
+
+
+

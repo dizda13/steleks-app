@@ -28,9 +28,9 @@ export class DashboardComponent implements OnInit {
     );
     this.cards.push(new InfoCard('Dizda', 'Dizda radi ovo'));
     this.headerCard = new InfoCard(
-        'Dobrodošao Dino!',
-        'Danas je 27. Januar i još uvijek nemaš pojma. Očekuje se još failova danas. Sa vama je vaš Steleks!'
-      );
+      'Dobrodošao Dino!',
+      'Danas je 27. Januar i još uvijek nemaš pojma. Očekuje se još failova danas. Sa vama je vaš Steleks!'
+    );
     this.forumCards.push(new InfoCard('Dino Pisac', 'Napisano 93.\n\nTreba nekada slušati i ovu drugu muziku.'));
     this.forumCards.push(new InfoCard('Dino Govornik', 'Izrečeno 18.\n\nTreba, treba. Nisam ja dzaba govorio'));
     const actions: Action[] = [];
@@ -55,6 +55,10 @@ export class DashboardComponent implements OnInit {
     } else {
       console.log('NIJE TACNO');
     }
+  }
+
+  onAddClick() {
+    this.router.navigate(['novosti']);
   }
 
 }
