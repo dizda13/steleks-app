@@ -1,0 +1,13 @@
+<div [@toastState]="this.state" class = "toast-div" [ngClass]="{
+  'toast-success': messageType=='success',
+  'toast-warning': messageType=='warning',
+  'toast-error': messageType=='error',
+  'toast-info': messageType=='info'}">
+  <p class = "toast-text">{{this.message}}</p>
+  <div  [ngSwitch]="messageType">
+    <mat-icon class = "toast-icons toast-success" *ngSwitchCase="'success'" #success>verified_user</mat-icon>
+    <mat-icon class = "toast-icons toast-warning" *ngSwitchCase="'warning'">report_problem</mat-icon>
+    <mat-icon class = "toast-icons toast-error" *ngSwitchCase="'error'">cancel</mat-icon>
+    <mat-icon class = "toast-icons toast-info" *ngSwitchCase="'info'">info</mat-icon>
+  </div>
+</div>

@@ -43,10 +43,14 @@ import {
 import { DashboardModule } from './dashboard/dashboard.module';
 import { CammonModule } from './common/common.module';
 import {ProfileModule} from './profile/profile.module';
+import {ToastService} from './common/toast/toast.service';
+import {ToastComponent} from './common/toast/toast/toast.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+  ],
+  exports: [
   ],
   imports: [
     BrowserModule,
@@ -89,7 +93,8 @@ import {ProfileModule} from './profile/profile.module';
     AppRoutingModule,
     ProfileModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
