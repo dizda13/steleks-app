@@ -12,7 +12,6 @@ export class AppComponent implements AfterViewInit {
   pokazi:boolean=false;
   sidebarItems:string[]=[
     "Steleks feed",
-    "Novosti",
     "Događaji",
     "Forum",
     "Elektrijada",
