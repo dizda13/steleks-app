@@ -4,11 +4,13 @@ import {InfocardComponent} from './card/infocard/infocard.component';
 import {MatButtonModule, MatCardModule, MatFormFieldModule, MatGridListModule, MatIconModule, MatInputModule} from '@angular/material';
 import {MarkdownModule} from 'ngx-md';
 import {SlideshowModule} from 'ng-simple-slideshow';
-import { ImagemanagerComponent } from './imagemanager/imagemanager.component';
+import {ImagemanagerComponent} from './imagemanager/imagemanager.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ToastComponent} from './toast/toast/toast.component';
 import {ToastService} from './toast/toast.service';
-import {TOAST_TYPE} from './toast/toast/toast-type.enum';
+import {ImageService} from './imagemanager/image.service';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {SteleksApiInterceptor} from './network/steleks-api-interceptor';
 
 @NgModule({
   imports: [
@@ -29,6 +31,15 @@ import {TOAST_TYPE} from './toast/toast/toast-type.enum';
     ImagemanagerComponent,
     ToastComponent,
   ],
+  providers: [
+    ImageService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: SteleksApiInterceptor,
+      multi: true
+    },
+    ToastService
+  ],
   declarations: [
     InfocardComponent,
     ImagemanagerComponent,
@@ -37,8 +48,6 @@ import {TOAST_TYPE} from './toast/toast/toast-type.enum';
   entryComponents: [
     ImagemanagerComponent,
   ],
-  providers: [
-    ToastService
-  ],
 })
-export class CammonModule { }
+export class CammonModule {
+}

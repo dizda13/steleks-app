@@ -43,8 +43,7 @@ import {
 import { DashboardModule } from './dashboard/dashboard.module';
 import { CammonModule } from './common/common.module';
 import {ProfileModule} from './profile/profile.module';
-import {ToastService} from './common/toast/toast.service';
-import {ToastComponent} from './common/toast/toast/toast.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -55,7 +54,7 @@ import {ToastComponent} from './common/toast/toast/toast.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     MatAutocompleteModule,
     MatButtonModule,
