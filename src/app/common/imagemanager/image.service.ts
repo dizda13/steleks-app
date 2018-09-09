@@ -15,7 +15,7 @@ export class ImageService {
     return this.httpClient.post('users/accesstoken', {
       username: 'steleks_admin',
       password: 'comein123'
-    }).flatMap(response => {
+    }).flatMap((response: any) => {
       let token = '';
       if (response.hasOwnProperty('token')) {
         token = response.token;
@@ -38,7 +38,7 @@ export class ImageService {
     return this.httpClient.post('users/accesstoken', {
       username: 'steleks_admin',
       password: 'comein123'
-    }).flatMap(response => {
+    }).flatMap((response: any) => {
       let token = '';
       if (response.hasOwnProperty('token')) {
         token = response.token;
