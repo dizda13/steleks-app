@@ -1,9 +1,10 @@
 import {InfoCard, InfoCardStyle} from '../common/card/infocard/infocard.model';
+import { Image } from '../common/imagemanager/image';
 
 class News {
   constructor(private _title: String,
               private _content: String,
-              private _imgUrl: String[]) {
+              private _images: Image[]) {
   }
 
   set title(value: String) {
@@ -14,8 +15,8 @@ class News {
     this._content = value;
   }
 
-  set imgUrl(value: String[]) {
-    this._imgUrl = value;
+  set images(value: Image[]) {
+    this._images = value;
   }
 
   get title(): String {
@@ -26,12 +27,12 @@ class News {
     return this._content;
   }
 
-  get imgUrl(): String[] {
-    return this._imgUrl;
+  get images(): Image[] {
+    return this._images;
   }
 
   getStyle(): InfoCardStyle {
-    if (this._imgUrl.length < 2) {
+    if (this._images.length < 2) {
       return InfoCardStyle.LargeImage;
     } else {
       return InfoCardStyle.Slideshow;
@@ -43,10 +44,18 @@ class News {
       this._title,
       this._content,
       true,
-      this._imgUrl,
+      this.getUrls(),
       [],
       this.getStyle()
     );
+  }
+
+  private getUrls(): String[] {
+    const urls = new Array<String>();
+    for (const img of this._images) {
+      urls.push(img.url);
+    }
+    return urls;
   }
 }
 

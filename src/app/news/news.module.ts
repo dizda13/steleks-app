@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {NewsRoutingModule} from './news-routing.module';
 import {CammonModule} from '../common/common.module';
+import {NewsService} from './news.service';
 import {
   MatButtonModule, MatCardModule, MatDialogModule, MatFormFieldModule, MatGridListModule, MatIconModule, MatInputModule,
   MatTabsModule
@@ -32,6 +33,9 @@ import {SlideshowModule} from 'ng-simple-slideshow';
     NewsComponent,
     CreateNewsComponent,
     NewscontainerComponent
+  ],
+  providers: [
+    NewsService,
   ],
   exports: [
     NewsRoutingModule,

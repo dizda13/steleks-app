@@ -26,7 +26,7 @@ export class ImageService {
         )
         .map((imageResponse: ImageResponse) => {
             return imageResponse._embedded.medias.map(
-              imageData => new Image(imageData.contentUrl)
+              imageData => new Image(imageData.contentUrl, imageData.id)
             );
           }
         );
@@ -50,7 +50,7 @@ export class ImageService {
         imageData,
         {headers: new HttpHeaders({'Authorization': token})})
         .map((iD: ImageData) => {
-          return new Image(iD.contentUrl);
+          return new Image(iD.contentUrl, iD.id);
         });
     }, 1);
   }
@@ -62,5 +62,6 @@ class ImageResponse {
 }
 
 class ImageData {
+  id: number;
   contentUrl: String;
 }

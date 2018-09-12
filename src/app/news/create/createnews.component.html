@@ -8,9 +8,9 @@
             <mat-error *ngIf="titleFormControl.hasError('required')">Field required</mat-error>
           </mat-form-field>
           <mat-grid-list cols="5" rowHeight="2:1">
-            <mat-grid-tile *ngFor="let url of news.imgUrl; index as i">
+            <mat-grid-tile *ngFor="let img of news.images; index as i">
               <div class="grid-img-container" (click)="onRemoveClicked(i)">
-                <img class="grid-img" src="{{url}}">
+                <img class="grid-img" src="{{img.url}}">
                 <div class="grid-img-hover">
                   <mat-icon color="primary">delete</mat-icon>
                 </div>

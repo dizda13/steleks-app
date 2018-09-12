@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {News} from '../news.model';
+import { Image } from '../../common/imagemanager/image';
 
 @Component({
   selector: 'app-newscontainer',
@@ -279,7 +280,7 @@ export class NewscontainerComponent implements OnInit {
       'Anime\n' +
       '```\n\nThe first opening of the One Piece anime television series, "We Are!", won the Animation Kobe Theme Song Award of the year 2000.[169] In February 2001, One Piece placed 9th among anime television series in Japan.[170] In 2001, the readers of Animage, a popular Japanese anime magazine, voted the anime television series in 5th place of The Readers\' Picks for the Anime that should be remembered in the 21st Century.[171] In June 2002, Animage readers voted One Piece to be the 16th best new anime of the year 2001,[172] and gave it another 16th place in 2004 in the category Favorite Anime Series.[173] In a 2005 web poll by Japanese television network TV Asahi One Piece was voted 6th most popular animated TV series.[174] Before the poll, Asahi TV broadcast another list based on a nationwide survey in which One Piece placed 4th among teenagers.[175] In 2006, it was elected 32nd of the Top 100 Japanese anime by TV Asahi and 21st by its viewers.[176][177] Funimation\'s first DVD release of the series "One Piece: Season 1 First Voyage" was nominated for the Fifth Annual TV DVD Awards.[178]' +
       '\n',
-      ['http://thehypedgeek.com/wp-content/uploads/2017/05/one-piece.jpg']
+      [new Image('http://thehypedgeek.com/wp-content/uploads/2017/05/one-piece.jpg', 0)]
     );
   }
 
