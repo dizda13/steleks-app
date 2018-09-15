@@ -71,6 +71,15 @@ class News {
     );
   }
 
+  public toSummaryCardWithNoLink(): InfoCard {
+    return new SummaryCard(
+      this._title,
+      this._content,
+      null,
+      this.getFirstUrl()
+    );
+  }
+
   public toFullInfoCard(): InfoCard {
     return new InfoCard(
       this._title,

@@ -23,8 +23,8 @@ export class NewsService {
       }
       const newsData = new NewsData();
       newsData.title = news.title;
-      newsData.shortText = 'Short';
-      newsData.longText = news.content;
+      newsData.shortText = news.content;
+      newsData.longText = news.fullContent;
       const medias = new Array<ImageData>();
       for (const img of news.images) {
         const imageData = new ImageData();
