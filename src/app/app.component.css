@@ -84,5 +84,25 @@
   }
 }
 
+.login {
+  left: 10px;
+  top: 150px;
+}
 
+.login-button {
+ background-color: #ffc107;
+}
 
+.input-credencials {
+  position: absolute;
+  top: 50px;
+  left: 25px;
+}
+
+.input .mat-input-element{
+  color: white !important;
+}
+
+.mat-form-field-underline {
+  background-color: white !important;
+}

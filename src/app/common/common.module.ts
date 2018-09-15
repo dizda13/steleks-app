@@ -11,6 +11,7 @@ import {ToastService} from './toast/toast.service';
 import {ImageService} from './imagemanager/image.service';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {SteleksApiInterceptor} from './network/steleks-api-interceptor';
+import {AuthService} from './auth.service';
 
 @NgModule({
   imports: [
@@ -38,7 +39,8 @@ import {SteleksApiInterceptor} from './network/steleks-api-interceptor';
       useClass: SteleksApiInterceptor,
       multi: true
     },
-    ToastService
+    ToastService,
+    AuthService,
   ],
   declarations: [
     InfocardComponent,

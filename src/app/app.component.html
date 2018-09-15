@@ -2,8 +2,23 @@
 
   <mat-sidenav #sidenav mode="over" [(opened)]="opened" (opened)="events.push('open!')" (closed)="events.push('close!')" style="width:240px;">
     <img class="sidebar-cover" src="https://i.ytimg.com/vi/lt0WQ8JzLz4/maxresdefault.jpg">
-    <div class="userData" routerLink="/profil" (click)="opened=false;">
-      <img class="circle" src="http://www.davidbowie.com/sites/g/files/g2000002506/f/styles/large/public/201302/1973_sane_cvr_fix_800sq.jpg?itok=h-TUpMU9">
+    <div *ngIf="!loggedIn" class="userData login">
+      <button *ngIf="!loggedInClicked" class="login-button" mat-button>Prijavi se</button>
+    </div>
+    <div>
+      <form *ngIf="loggedInClicked" class="example-form input-credencials" style="background-color: transparent !important; color: white">
+        <mat-form-field class="example-full-width">
+              <input matInput placeholder="Korisnicko ime" (keyup)="onKey($event, 'username')" [value]="username">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Lozinka" (keyup)="onKey($event, 'password')" [value]="password">
+        </mat-form-field>
+        <button class="login-button" mat-button (click)="login()">Prijavi se</button>
+      </form>
+    </div>
+    <div *ngIf="loggedIn" class="userData" routerLink="/profil" (click)="opened=false;" >
+      <img class="circle" src="https://static1.squarespace.com/static/5a70fa14e45a7c7dd2fadad0/t/5a92d15071c10b0d6533fd9c/1519498012293/1973_aladdinsane.jpg">
       <p class="username">Dizda13</p>
       <p class="email">ddizdarevi3@etf.unsa.ba</p>
     </div>

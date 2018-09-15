@@ -13,6 +13,7 @@ export abstract class BaseApiInterceptor implements HttpInterceptor {
         headers: HeaderUtil.combineHeaders(req.headers, this.headers)
       }
   );
+    console.log(apiReq.headers);
     return next.handle(apiReq);
   }
 

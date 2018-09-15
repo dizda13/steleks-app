@@ -1,10 +1,14 @@
 import {Injectable} from '@angular/core';
 import {environment} from '../../../environments/environment';
 import {BaseApiInterceptor} from './base-api-interceptor';
-import {HttpHeaders} from '@angular/common/http';
+import {HttpEvent, HttpHandler, HttpHeaders, HttpRequest} from '@angular/common/http';
 
 @Injectable()
 export class SteleksApiInterceptor extends BaseApiInterceptor {
   baseUrl = environment.steleks_base_url;
-  headers = new HttpHeaders();
+
+  public get headers(): HttpHeaders {
+    const headers = new HttpHeaders({'Authorization': localStorage.getItem('token')});
+    return headers;
+  }
 }

@@ -90,7 +90,7 @@ import {HttpClientModule} from '@angular/common/http';
     DashboardModule,
     CammonModule,
     AppRoutingModule,
-    ProfileModule
+    ProfileModule,
   ],
   providers: [
   ],
