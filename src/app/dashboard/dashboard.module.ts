@@ -4,7 +4,6 @@ import { DashboardComponent } from './dashboard.component';
 import {MatButtonModule, MatCardModule, MatIconModule} from '@angular/material';
 import { CammonModule } from '../common/common.module';
 import { DashboardRoutingModule } from './dashboard-routing.module';
-import { NewsModule } from '../news/news.module';
 
 @NgModule({
   imports: [
@@ -13,7 +12,6 @@ import { NewsModule } from '../news/news.module';
     MatButtonModule,
     MatIconModule,
     CammonModule,
-    NewsModule,
   ],
   exports: [
   DashboardComponent,

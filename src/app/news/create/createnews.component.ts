@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {News} from '../news.model';
-import {NewsService} from '../news.service';
+import {NewsService} from '../../common/news/news.service';
 import {InfoCard} from '../../common/card/infocard/infocard.model';
 import {FormControl, Validators} from '@angular/forms';
 import {MatDialog} from '@angular/material';

@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {InfoCard, InfoCardStyle} from '../common/card/infocard/infocard.model';
 import {Action} from '../common/card/action.model';
 import {ProfileService, UserData} from '../profile/profile.service';
-import {NewsService} from '../news/news.service';
+import {NewsService} from '../common/news/news.service';
 import {News} from '../news/news.model';
 import {SummaryCard} from '../common/card/summarycard/summarycard.model';
 import {Router} from '@angular/router';

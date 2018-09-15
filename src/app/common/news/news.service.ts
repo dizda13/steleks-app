@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-import { Image } from '../common/imagemanager/image';
-import { News } from './news.model';
+import { Image } from '../imagemanager/image';
+import { News } from '../../news/news.model';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/mergeMap';
