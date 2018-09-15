@@ -14,7 +14,9 @@ class SummaryCard extends InfoCard {
               imgLink: String = '',
               style: SummaryCardStyle = SummaryCardStyle.Large) {
     const actions: Action[] = [];
-    actions.push(new Action('Read more', readMoreCallback));
+    if (readMoreCallback) {
+      actions.push(new Action('Read more', readMoreCallback));
+    }
 
     let infoStyle: InfoCardStyle;
     if (style === SummaryCardStyle.Large) {

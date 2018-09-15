@@ -22,7 +22,7 @@ import { VirtualScrollModule } from 'angular2-virtual-scroll';
   declarations: [
     EventsComponent,
   ],
-  exports:[
+  exports: [
     EventsRoutingModule,
   ]
 })

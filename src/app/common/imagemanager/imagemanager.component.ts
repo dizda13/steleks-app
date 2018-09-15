@@ -29,7 +29,7 @@ export class ImagemanagerComponent implements OnInit {
   }
 
   onDoneClick(): void {
-    this.dialogRef.close({url: this.url});
+    this.dialogRef.close();
   }
 
   onAddClick(): void {
@@ -37,7 +37,7 @@ export class ImagemanagerComponent implements OnInit {
     if (this.urlFormControl.errors) {
       return;
     }
-    this.imageService.addImages(new Image(this.url)).subscribe(
+    this.imageService.addImages(new Image(this.url, 0)).subscribe(
       img => this.images.push(img)
     );
   }
@@ -51,6 +51,6 @@ export class ImagemanagerComponent implements OnInit {
   }
 
   onImageSelected(i: number) {
-    this.dialogRef.close({url: this.images[i].url});
+    this.dialogRef.close({url: this.images[i].url, img: this.images[i]});
   }
 }

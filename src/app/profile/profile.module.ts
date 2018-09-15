@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {ProfileComponent} from './profile.component';
 import {ProfileRoutingModule} from './profile-routing.module';
 import {MatButtonModule, MatDialogModule, MatIconModule, MatInputModule} from '@angular/material';
+import {ProfileService} from './profile.service';
 import {PasswordDialogComponent} from './password-dialog/password-dialog.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
@@ -20,6 +21,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
   exports: [
     ProfileComponent,
     ProfileRoutingModule
+  ],
+  providers: [
+    ProfileService
   ],
   entryComponents: [
     PasswordDialogComponent

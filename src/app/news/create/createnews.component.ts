@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {News} from '../news.model';
+import {NewsService} from '../../common/news/news.service';
 import {InfoCard} from '../../common/card/infocard/infocard.model';
 import {FormControl, Validators} from '@angular/forms';
 import {MatDialog} from '@angular/material';
@@ -24,12 +25,8 @@ export class CreateNewsComponent implements OnInit {
 
   formControls: FormControl[] = [this.titleFormControl, this.contentFormControl];
 
-  constructor(public dialog: MatDialog) {
-    this.news = new News('', '', [
-      'http://thehypedgeek.com/wp-content/uploads/2017/05/one-piece.jpg',
-      'https://s3.envato.com/files/74536647/envato-bg.jpg',
-      'https://t00.deviantart.net/7yc0ZwaKdUaZJXr5W-rHkyxk378=/300x200/filters:fixed_height(100,100):origin()/pre00/9e94/th/pre/f/2009/362/8/9/balls_from_hand_by_dizda.jpg'
-    ]);
+  constructor(public dialog: MatDialog, private newsService: NewsService) {
+    this.news = new News(0, '', '', '', []);
     this.generatedCard = this.news.toInfoCard();
   }
 
@@ -44,6 +41,9 @@ export class CreateNewsComponent implements OnInit {
       }
     }
     console.log('SAVING!');
+    this.newsService.addNews(this.news).subscribe(result => {
+      console.log('Got some result');
+    });
   }
 
   onTabChanged() {
@@ -52,7 +52,7 @@ export class CreateNewsComponent implements OnInit {
 
   onRemoveClicked(index: number) {
     console.log('Removing ' + index);
-    this.news.imgUrl.splice(index, 1);
+    this.news.images.splice(index, 1);
   }
 
   onAddClicked() {
@@ -65,9 +65,9 @@ export class CreateNewsComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       console.log(result);
-      if (result && result.url) {
-        this.news.imgUrl.push(result.url);
-        this.news.imgUrl = this.news.imgUrl.map(x => x);
+      if (result && result.img) {
+        this.news.images.push(result.img);
+        this.news.images = this.news.images.map(x => x);
       }
       // this.animal = result;
     });

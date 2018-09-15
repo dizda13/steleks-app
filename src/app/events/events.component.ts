@@ -10,18 +10,18 @@ export class EventsComponent implements OnInit {
 
   selectedDate: Date = new Date();
   cards: InfoCard[] = [];
-  public isFullListDisplayed: boolean = false;
+  public isFullListDisplayed = false;
   isLoading = false;
 
   constructor() {
-    for (let i: number = 0; i < 5; i++) {
+    for (let i = 0; i < 5; i++) {
       this.counter++;
       this.cards.push(new InfoCard('Test' + this.counter, 'Testing stuff'));
     }
   }
 
   viewPortItems: any;
-  counter: number = 0;
+  counter = 0;
 
   ngOnInit() {
 
@@ -32,14 +32,15 @@ export class EventsComponent implements OnInit {
     console.log(nesto.end);
     console.log(this.cards.length);
     console.log(this.viewPortItems);
-    if (nesto.end !== this.cards.length) return;
-    if (this.isLoading) return;
+    if (nesto.end !== this.cards.length || this.isLoading) {
+      return;
+    }
     this.isLoading = true;
     setTimeout(() => {
       this.isLoading = false;
 
       const someArray: any[] = [];
-      for (let i: number = 0; i < 5; i++) {
+      for (let i = 0; i < 5; i++) {
         this.counter++;
         someArray.push(new InfoCard('Test' + this.counter, 'Testing stuff'));
       }
