@@ -7,6 +7,7 @@
 		<mat-card-title [ngClass]="getStyle()">{{model.title}}</mat-card-title>
       <markdown *ngIf="useMarkdown()" [data]="model.content" class="mat-card-content-text"></markdown>
 			<p *ngIf="!useMarkdown()" [ngClass]="getStyle()" class="mat-card-content-text">
+			{{model.content}}
 			</p>
 		<mat-card-actions [ngClass]="getStyle()" *ngIf="model.actions.length">
 			<button mat-button *ngFor="let action of model.actions" (click)="action.onButtonClicked()">{{action.title}}</button>
