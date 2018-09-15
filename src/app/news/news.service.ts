@@ -43,13 +43,56 @@ export class NewsService {
     }, 1);
   }
 
+  getNews(): Observable<News[]> {
+    // TODO remove login call
+    return this.httpClient.post('users/accesstoken', {
+      username: 'steleks_admin',
+      password: 'comein123'
+    }).flatMap((response: any) => {
+      let token = '';
+      if (response.hasOwnProperty('token')) {
+        token = response.token;
+      }
+      return this.httpClient.get<NewsListResponse>(
+        'events/events',
+        {headers: new HttpHeaders({'Authorization': token})})
+        .map((newsResponse: NewsListResponse) => {
+          console.log(newsResponse);
+          console.log(newsResponse._embedded);
+          console.log(newsResponse._embedded.events);
+          return newsResponse._embedded.events;
+        })
+        .map((newsDatas: NewsData[]) => {
+          const newNews = new Array<News>();
+          for (const newsData of newsDatas) {
+            const images = new Array<Image>();
+            for (const newsImage of newsData.mediaSet) {
+              images.push(new Image(newsImage.contentUrl, newsImage.id));
+            }
+            newNews.push(new News(newsData.id, newsData.title, newsData.shortText, newsData.longText, images));
+          }
+          return newNews;
+        });
+    }, 1);
+  }
+
+}
+
+class NewsListResponse {
+  _embedded: NewsListInner;
+}
+
+class NewsListInner {
+  events: NewsData[];
 }
 
 class NewsData {
+  id: number;
   title: String;
   shortText: String;
   longText: String;
   medias: ImageData[];
+  mediaSet: ImageData[];
 }
 
 class ImageData {

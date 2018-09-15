@@ -16,7 +16,9 @@ export class NewscontainerComponent implements OnInit {
 
   ngOnInit() {
     this.news = new News(
+      1,
       'Vrlo vazna vijest One Piece\n',
+      'Mega man tamo vamo',
       '# From Wikipedia, the free encyclopedia\n' +
       '## For other uses, see One-piece (disambiguation).\n' +
       'One Piece\n' +

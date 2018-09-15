@@ -26,7 +26,7 @@ export class CreateNewsComponent implements OnInit {
   formControls: FormControl[] = [this.titleFormControl, this.contentFormControl];
 
   constructor(public dialog: MatDialog, private newsService: NewsService) {
-    this.news = new News('', '', []);
+    this.news = new News(0, '', '', '', []);
     this.generatedCard = this.news.toInfoCard();
   }
 

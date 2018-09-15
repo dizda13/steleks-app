@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {InfoCard, InfoCardStyle} from '../common/card/infocard/infocard.model';
 import {Action} from '../common/card/action.model';
 import {ProfileService, UserData} from '../profile/profile.service';
+import {NewsService} from '../news/news.service';
+import {News} from '../news/news.model';
 import {SummaryCard} from '../common/card/summarycard/summarycard.model';
 import {Router} from '@angular/router';
 
@@ -16,7 +18,7 @@ export class DashboardComponent implements OnInit {
   forumCards: InfoCard[] = [];
   headerCard: InfoCard;
 
-  constructor(private router: Router, private profileService: ProfileService) {
+  constructor(private router: Router, private profileService: ProfileService, private newsService: NewsService) {
   }
 
   ngOnInit() {
@@ -35,10 +37,12 @@ export class DashboardComponent implements OnInit {
         + user.lastName + '. Tvoje korisnicko ime je zajebano (' + user.username + '). Uzivaj. Sa tobom je tvoj Steleks!'
       );
     });
-    this.headerCard = new InfoCard(
-      'Dobrodošao Dino!',
-      'Danas je 27. Januar i još uvijek nemaš pojma. Očekuje se još failova danas. Sa vama je vaš Steleks!'
-    );
+    this.newsService.getNews().subscribe((news: News[]) => {
+      for (const singleNews of news) {
+        this.cards.push(singleNews.toSummaryCard(this.router));
+      }
+      console.log('News: ' + news);
+    });
     this.forumCards.push(new InfoCard('Dino Pisac', 'Napisano 93.\n\nTreba nekada slušati i ovu drugu muziku.'));
     this.forumCards.push(new InfoCard('Dino Govornik', 'Izrečeno 18.\n\nTreba, treba. Nisam ja dzaba govorio'));
     const actions: Action[] = [];

@@ -38,7 +38,7 @@ import {SlideshowModule} from 'ng-simple-slideshow';
     NewsService,
   ],
   exports: [
-    NewsRoutingModule,
+    // NewsRoutingModule,
     NewsComponent,
     CreateNewsComponent
   ]
