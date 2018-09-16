@@ -34,7 +34,7 @@ export class NewsService {
       }
       newsData.medias = medias;
       return this.httpClient.post<NewsData>(
-        'events/events',
+        'events/news',
         newsData,
         {headers: new HttpHeaders({'Authorization': token})})
         .map((nD: NewsData) => {
@@ -54,7 +54,7 @@ export class NewsService {
         token = response.token;
       }
       return this.httpClient.get<NewsListResponse>(
-        'events/events',
+        'events/news',
         {headers: new HttpHeaders({'Authorization': token})})
         .map((newsResponse: NewsListResponse) => {
           console.log(newsResponse);
@@ -72,6 +72,29 @@ export class NewsService {
             newNews.push(new News(newsData.id, newsData.title, newsData.shortText, newsData.longText, images));
           }
           return newNews;
+        });
+    }, 1);
+  }
+
+  getSingleNews(id: number): Observable<News> {
+    // TODO remove login call
+    return this.httpClient.post('users/accesstoken', {
+      username: 'steleks_admin',
+      password: 'comein123'
+    }).flatMap((response: any) => {
+      let token = '';
+      if (response.hasOwnProperty('token')) {
+        token = response.token;
+      }
+      return this.httpClient.get<NewsData>(
+        'events/events/' + id,
+        {headers: new HttpHeaders({'Authorization': token})})
+        .map((newsData: NewsData) => {
+          const images = new Array<Image>();
+          for (const newsImage of newsData.mediaSet) {
+            images.push(new Image(newsImage.contentUrl, newsImage.id));
+          }
+          return new News(newsData.id, newsData.title, newsData.shortText, newsData.longText, images);
         });
     }, 1);
   }

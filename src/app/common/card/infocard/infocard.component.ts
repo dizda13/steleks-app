@@ -21,7 +21,6 @@ export class InfocardComponent implements OnInit, OnChanges {
     console.log('Style: ' + this.getStyle());
   }
 
-
   ngOnChanges(changes: SimpleChanges): void {
     console.log('GOT SOME CHANGES');
   }
