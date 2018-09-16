@@ -11,7 +11,6 @@ export class ImageService {
   }
 
   getAllImages(): Observable<Image[]> {
-    // TODO remove login call
       return this.httpClient.get<ImageResponse>(
         'events/medias',
         )
@@ -24,7 +23,6 @@ export class ImageService {
   }
 
   addImages(image: Image): Observable<Image> {
-    // TODO remove login call
       const imageData = new ImageData();
       imageData.contentUrl = image.url;
       return this.httpClient.post<ImageData>(

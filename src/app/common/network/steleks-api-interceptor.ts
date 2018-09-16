@@ -8,7 +8,13 @@ export class SteleksApiInterceptor extends BaseApiInterceptor {
   baseUrl = environment.steleks_base_url;
 
   public get headers(): HttpHeaders {
-    const headers = new HttpHeaders({'Authorization': localStorage.getItem('token')});
+    let headers;
+    console.log(localStorage.getItem('token'));
+    if (localStorage.getItem('token')) {
+      headers = new HttpHeaders({'Authorization': localStorage.getItem('token')});
+    } else {
+      headers = null;
+    }
     return headers;
   }
 }

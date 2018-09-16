@@ -1,5 +1,6 @@
 import {HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
+import {forEach} from '@angular/router/src/utils/collection';
 
 export abstract class BaseApiInterceptor implements HttpInterceptor {
 
@@ -7,13 +8,23 @@ export abstract class BaseApiInterceptor implements HttpInterceptor {
   abstract headers: HttpHeaders;
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const apiReq = req.clone(
-      {
-        url: `${this.baseUrl}/${req.url}`,
-        headers: HeaderUtil.combineHeaders(req.headers, this.headers)
-      }
-  );
-    console.log(apiReq.headers);
+    const headers = HeaderUtil.combineHeaders(req.headers, this.headers)
+    let apiReq: any;
+    console.log(headers)
+    if (headers) {
+      apiReq = req.clone(
+        {
+          url: `${this.baseUrl}/${req.url}`,
+          headers: headers
+        }
+      );
+    } else {
+      apiReq = req.clone(
+        {
+          url: `${this.baseUrl}/${req.url}`,
+        }
+      );
+    }
     return next.handle(apiReq);
   }
 
@@ -27,14 +38,22 @@ class HeaderUtil {
    * @returns {HttpHeaders} combined instance
    */
   static combineHeaders(first: HttpHeaders, second: HttpHeaders) {
-    let combined: HttpHeaders = new HttpHeaders();
-    for (const key of first.keys()) {
-      combined = combined.append(key, first.getAll(key));
+    let combined: any = {};
+    if (first) {
+      for (const key of first.keys()) {
+        combined[key] = first.get(key);
+      }
     }
-    for (const key of second.keys()) {
-      combined = combined.append(key, second.getAll(key));
+    if (second) {
+      for (const key of second.keys()) {
+        combined[key] = second.get(key);
+      }
     }
-    return combined;
+    console.log("combined", combined);
+    if (combined) {
+      return new HttpHeaders(combined);
+    }
+    return null;
   }
 }
 

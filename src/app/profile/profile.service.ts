@@ -5,7 +5,7 @@ import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/mergeMap';
 
 @Injectable()
-export class ProfileService {
+class ProfileService {
 
   constructor(private httpClient: HttpClient) {
   }
@@ -14,10 +14,14 @@ export class ProfileService {
       return this.httpClient.get<UserData>(
         'users/users/current');
   }
+  updateProfile(userData: UserData): Observable<UserData>{
+    console.log(userData);
+    return this.httpClient.patch<UserData>('users/users/current', userData);
+  }
 
 }
 
-export class UserData {
+class UserData {
   firstName: String;
   lastName: String;
   username: String;
@@ -26,3 +30,5 @@ export class UserData {
   cardNumber: number;
   profilePictureUrl: String;
 }
+
+export {UserData, ProfileService};

@@ -2,11 +2,11 @@
 
   <mat-sidenav #sidenav mode="over" [(opened)]="opened" (opened)="events.push('open!')" (closed)="events.push('close!')" style="width:240px;">
     <img class="sidebar-cover" src="https://i.ytimg.com/vi/lt0WQ8JzLz4/maxresdefault.jpg">
-    <div *ngIf="!loggedIn" class="userData login">
+    <div *ngIf="!isLoggedIn() && !loggedInClicked" (click)="changeInput()" class="userData login">
       <button *ngIf="!loggedInClicked" class="login-button" mat-button>Prijavi se</button>
     </div>
     <div>
-      <form *ngIf="loggedInClicked" class="example-form input-credencials" style="background-color: transparent !important; color: white">
+      <form *ngIf="!isLoggedIn() && loggedInClicked" class="example-form input-credencials" style="background-color: transparent !important; color: white">
         <mat-form-field class="example-full-width">
               <input matInput placeholder="Korisnicko ime" (keyup)="onKey($event, 'username')" [value]="username">
         </mat-form-field>
@@ -17,10 +17,10 @@
         <button class="login-button" mat-button (click)="login()">Prijavi se</button>
       </form>
     </div>
-    <div *ngIf="loggedIn" class="userData" routerLink="/profil" (click)="opened=false;" >
-      <img class="circle" src="https://static1.squarespace.com/static/5a70fa14e45a7c7dd2fadad0/t/5a92d15071c10b0d6533fd9c/1519498012293/1973_aladdinsane.jpg">
-      <p class="username">Dizda13</p>
-      <p class="email">ddizdarevi3@etf.unsa.ba</p>
+    <div *ngIf="isLoggedIn() && user" class="userData" routerLink="/profil" (click)="opened=false;" >
+      <img class="circle" [src]="user.profilePictureUrl || defaultImg">
+      <p class="username" >{{user.username}}</p>
+      <p class="email">{{user.email}}</p>
     </div>
     <div>
     <button mat-button *ngFor="let sidebarItem of this.sidebarItems" class="sideBarItems" [routerLink]="'/'+sidebarItem.toLowerCase().replace(' ','-')" (click)="opened=false;">

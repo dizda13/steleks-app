@@ -12,15 +12,6 @@ export class NewsService {
   }
 
   addNews(news: News): Observable<News> {
-    // TODO remove login call
-    return this.httpClient.post('users/accesstoken', {
-      username: 'steleks_admin',
-      password: 'comein123'
-    }).flatMap((response: any) => {
-      let token = '';
-      if (response.hasOwnProperty('token')) {
-        token = response.token;
-      }
       const newsData = new NewsData();
       newsData.title = news.title;
       newsData.shortText = news.content;
@@ -36,26 +27,17 @@ export class NewsService {
       return this.httpClient.post<NewsData>(
         'events/news',
         newsData,
-        {headers: new HttpHeaders({'Authorization': token})})
+        )
         .map((nD: NewsData) => {
           return news;
         });
-    }, 1);
   }
 
   getNews(): Observable<News[]> {
-    // TODO remove login call
-    return this.httpClient.post('users/accesstoken', {
-      username: 'steleks_admin',
-      password: 'comein123'
-    }).flatMap((response: any) => {
-      let token = '';
-      if (response.hasOwnProperty('token')) {
-        token = response.token;
-      }
+
       return this.httpClient.get<NewsListResponse>(
         'events/news',
-        {headers: new HttpHeaders({'Authorization': token})})
+        )
         .map((newsResponse: NewsListResponse) => {
           console.log(newsResponse);
           console.log(newsResponse._embedded);
@@ -73,22 +55,12 @@ export class NewsService {
           }
           return newNews;
         });
-    }, 1);
   }
 
   getSingleNews(id: number): Observable<News> {
-    // TODO remove login call
-    return this.httpClient.post('users/accesstoken', {
-      username: 'steleks_admin',
-      password: 'comein123'
-    }).flatMap((response: any) => {
-      let token = '';
-      if (response.hasOwnProperty('token')) {
-        token = response.token;
-      }
       return this.httpClient.get<NewsData>(
         'events/events/' + id,
-        {headers: new HttpHeaders({'Authorization': token})})
+        )
         .map((newsData: NewsData) => {
           const images = new Array<Image>();
           for (const newsImage of newsData.mediaSet) {
@@ -96,7 +68,6 @@ export class NewsService {
           }
           return new News(newsData.id, newsData.title, newsData.shortText, newsData.longText, images);
         });
-    }, 1);
   }
 
 }

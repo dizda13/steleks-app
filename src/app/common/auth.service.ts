@@ -16,8 +16,7 @@ export class AuthService {
       localStorage.setItem('token', token.token);
       localStorage.setItem('roles', token.roles);
       localStorage.setItem('userId', token.userId);
-      return token;
-    }).subscribe();
+  });
   }
 
   public logout() {

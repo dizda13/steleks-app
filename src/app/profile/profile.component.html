@@ -1,37 +1,37 @@
 <div class="profile-wrapper">
   <div style="position: relative; overflow: hidden; height: 35%; margin: 0%">
-    <img class="imgCenter" src="https://dw9to29mmj727.cloudfront.net/properties/2016/526-SeriesThumb_OP_400x320.png">
+    <img  class="imgCenter" src="https://dw9to29mmj727.cloudfront.net/properties/2016/526-SeriesThumb_OP_400x320.png">
   </div>
   <div class="profileImage">
-    <img style="width: 20%;height: unset; position: relative;border: 3px solid white !important" class="circle"
-         src="https://static1.squarespace.com/static/5a70fa14e45a7c7dd2fadad0/t/5a92d15071c10b0d6533fd9c/1519498012293/1973_aladdinsane.jpg">
+    <img *ngIf = "user" style="width: 20%;height: unset; position: relative;border: 3px solid white !important" class="circle"
+         [src]="user.profilePictureUrl || defaultImg">
   </div>
 
-  <form style="padding: 0% 15%;position: relative; top: -10%;" class="example-form">
+  <form *ngIf = "user" style="padding: 0% 15%;position: relative; top: -10%;" class="example-form">
     <div class="edit-wrapper" [ngClass]="{'enable-edit-mode': !isInEditMode}" style="float:right;" (click)="changeViewMode()">
       <mat-icon class="edit-mode">edit</mat-icon>
     </div>
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Ime" value="Dino" [disabled]="this.isInEditMode">
+      <input matInput placeholder="Ime" [(ngModel)]="user.firstName" name="firstname" [disabled]="this.isInEditMode">
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Prezime" value="Dizdarevic" [disabled]="this.isInEditMode">
+      <input matInput placeholder="Prezime" [(ngModel)]="user.lastName" name="lastname" [disabled]="this.isInEditMode">
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Username" value="dizda13" [disabled]="this.isInEditMode">
+      <input matInput placeholder="Username" [(ngModel)]="user.username" name="username"  [disabled]="this.isInEditMode">
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Broj kartice" value="1234" [disabled]="true">
+      <input matInput placeholder="Broj kartice" [value]="user.cardNumber" [disabled]="true">
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Broj telefona" value="061/123-456" [disabled]="this.isInEditMode">
+      <input matInput placeholder="Broj telefona" [(ngModel)]="user.contactNumber" name="contactNumber" [disabled]="this.isInEditMode">
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Email" value="dino@dizda.com" [disabled]="this.isInEditMode">
+      <input matInput placeholder="Email" [(ngModel)]="user.email" name="email" [disabled]="this.isInEditMode">
     </mat-form-field>
     <p class="changePassword" mat-raised-button (click)="openDialog()">Promijeni lozinku</p>
     <div style="text-align: right" *ngIf="!this.isInEditMode">
-    <button mat-button style="padding:0%;">
+    <button mat-button style="padding:0%;" (click)="updateUser()">
       Azuriraj
     </button>
     </div>
