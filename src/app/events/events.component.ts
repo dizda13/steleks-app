@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {InfoCard} from '../common/card/infocard/infocard.model';
-import {EventService} from './events.service';
+import {Event, EventService} from './events.service';
 
 @Component({
   selector: 'app-events',
@@ -13,10 +13,10 @@ export class EventsComponent implements OnInit {
   cards: InfoCard[] = [];
   public isFullListDisplayed = false;
   isLoading = false;
+  events: Event[];
 
-  constructor(private events: EventService) {
-    events.getEvents().subscribe(value => {console.log("Events", value); }
-    )
+  constructor(private event: EventService) {
+    event.getEvents().subscribe((value: Event[]) => { this.events = value; });
     for (let i = 0; i < 5; i++) {
       this.counter++;
       this.cards.push(new InfoCard('Test' + this.counter, 'Testing stuff'));
@@ -32,9 +32,6 @@ export class EventsComponent implements OnInit {
 
 
   onScroll(nesto: any) {
-    console.log(nesto.end);
-    console.log(this.cards.length);
-    console.log(this.viewPortItems);
     if (nesto.end !== this.cards.length || this.isLoading) {
       return;
     }

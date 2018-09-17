@@ -7,12 +7,12 @@ export class EventService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getEvents (): Observable<Events[]> {
-     return this.httpClient.get('events/realEvents').map(value => <Events[]>value);
+  getEvents(): Observable<Event[]> {
+     return this.httpClient.get('events/realEvents').map(value => <Event[]>value);
   }
 }
 
-export class Events {
+export class Event {
   id: number;
   title: string;
   shortText: string;
