@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {InfoCard} from '../common/card/infocard/infocard.model';
+import {EventService} from './events.service';
 
 @Component({
   selector: 'app-events',
@@ -13,7 +14,9 @@ export class EventsComponent implements OnInit {
   public isFullListDisplayed = false;
   isLoading = false;
 
-  constructor() {
+  constructor(private events: EventService) {
+    events.getEvents().subscribe(value => {console.log("Events", value); }
+    )
     for (let i = 0; i < 5; i++) {
       this.counter++;
       this.cards.push(new InfoCard('Test' + this.counter, 'Testing stuff'));
