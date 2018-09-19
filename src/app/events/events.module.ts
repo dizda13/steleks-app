@@ -11,12 +11,10 @@ import {
 import { CammonModule } from '../common/common.module';
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 import { VirtualScrollModule } from 'angular2-virtual-scroll';
-import {EventService} from './events.service';
+import {EventService} from './../common/events/events.service';
 import {CreateEventComponent} from './create/createevent.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SlideshowModule} from 'ng-simple-slideshow';
-import {NewsComponent} from '../common/display/news.component';
-import {AppRoutingModule} from '../app-routing.module';
 import {RouterModule} from '@angular/router';
 
 @NgModule({

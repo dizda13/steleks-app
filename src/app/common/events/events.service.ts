@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
-import {News} from '../news/news.model';
-import { ImageData } from '../common/news/news.service';
+import { ImageData } from '../news/news.service';
+import {News} from '../../news/news.model';
 @Injectable()
 export class EventService {
 

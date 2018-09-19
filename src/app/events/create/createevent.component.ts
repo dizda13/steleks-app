@@ -4,7 +4,7 @@ import {InfoCard} from '../../common/card/infocard/infocard.model';
 import {FormControl, Validators} from '@angular/forms';
 import {MatDialog} from '@angular/material';
 import {ImagemanagerComponent} from '../../common/imagemanager/imagemanager.component';
-import {EventService} from '../events.service';
+import {EventService} from '../../common/events/events.service';
 
 @Component({
   selector: 'app-createevent',
