@@ -89,7 +89,7 @@ class NewsData {
   mediaSet: ImageData[];
 }
 
-class ImageData {
+export class ImageData {
   id: number;
   contentUrl: String;
 }

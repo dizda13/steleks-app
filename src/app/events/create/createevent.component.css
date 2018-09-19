@@ -1,0 +1,44 @@
+.create-news-container {
+  text-align: left;
+}
+
+mat-card-title {
+  text-align: center;
+}
+
+.create-news-container {
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+}
+
+@media (max-width: 600px) {
+  .create-news-container {
+    width: 100%;
+  }
+}
+
+mat-form-field {
+  margin-top: 4px;
+}
+
+.news-edit {
+  margin-top: 32px;
+}
+
+.create-news-input {
+  width: 100%;
+}
+
+mat-icon {
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 48px;
+  height: 48px;
+  width: 48px;
+}
+

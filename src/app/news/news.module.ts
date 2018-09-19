@@ -6,7 +6,7 @@ import {
   MatButtonModule, MatCardModule, MatDialogModule, MatFormFieldModule, MatGridListModule, MatIconModule, MatInputModule,
   MatTabsModule
 } from '@angular/material';
-import {NewsComponent} from './display/news.component';
+import {NewsComponent} from '../common/display/news.component';
 import {CreateNewsComponent} from './create/createnews.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NewscontainerComponent } from './container/newscontainer.component';
@@ -29,13 +29,13 @@ import {SlideshowModule} from 'ng-simple-slideshow';
     FormsModule,
   ],
   declarations: [
-    NewsComponent,
+    // NewsComponent,
     CreateNewsComponent,
     NewscontainerComponent
   ],
   exports: [
     NewsRoutingModule,
-    NewsComponent,
+    // NewsComponent,
     CreateNewsComponent
   ]
 })

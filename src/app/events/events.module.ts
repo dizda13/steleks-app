@@ -2,11 +2,22 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EventsComponent } from './events.component';
 import { EventsRoutingModule } from './events-routing.module';
-import {MatDatepickerModule, MatGridListModule, MatListModule, MatProgressBarModule, MatProgressSpinnerModule} from '@angular/material';
+import {
+  MatButtonModule, MatCardModule,
+  MatDatepickerModule, MatDialogModule, MatFormFieldModule, MatGridListModule, MatIconModule, MatInputModule, MatListModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule, MatTabsModule
+} from '@angular/material';
 import { CammonModule } from '../common/common.module';
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 import { VirtualScrollModule } from 'angular2-virtual-scroll';
 import {EventService} from './events.service';
+import {CreateEventComponent} from './create/createevent.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {SlideshowModule} from 'ng-simple-slideshow';
+import {NewsComponent} from '../common/display/news.component';
+import {AppRoutingModule} from '../app-routing.module';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   imports: [
@@ -18,13 +29,30 @@ import {EventService} from './events.service';
     MatProgressSpinnerModule,
     MatListModule,
     MatGridListModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatIconModule,
+    MatButtonModule,
+    CommonModule,
+    MatCardModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatTabsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule,
+    SlideshowModule,
+    MatDialogModule,
+    MatGridListModule,
+    FormsModule,
+    RouterModule,
   ],
   declarations: [
     EventsComponent,
+    CreateEventComponent,
   ],
   exports: [
     EventsRoutingModule,
+    CreateEventComponent,
   ],
   providers: [
     EventService,

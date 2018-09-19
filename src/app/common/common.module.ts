@@ -13,6 +13,7 @@ import {NewsService} from './news/news.service';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {SteleksApiInterceptor} from './network/steleks-api-interceptor';
 import {AuthService} from './auth.service';
+import {NewsComponent} from './display/news.component';
 
 @NgModule({
   imports: [
@@ -32,6 +33,7 @@ import {AuthService} from './auth.service';
     InfocardComponent,
     ImagemanagerComponent,
     ToastComponent,
+    NewsComponent
   ],
   providers: [
     ImageService,
@@ -48,6 +50,7 @@ import {AuthService} from './auth.service';
     InfocardComponent,
     ImagemanagerComponent,
     ToastComponent,
+    NewsComponent,
   ],
   entryComponents: [
     ImagemanagerComponent,

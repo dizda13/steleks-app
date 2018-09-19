@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {News} from '../news.model';
+import {News} from '../../news/news.model';
 
 @Component({
   selector: 'app-news',
