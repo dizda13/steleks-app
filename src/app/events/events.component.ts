@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {InfoCard} from '../common/card/infocard/infocard.model';
-import {Event, EventService} from './events.service';
+import {Event, EventService} from '../common/events/events.service';
 
 @Component({
   selector: 'app-events',
@@ -17,11 +17,11 @@ export class EventsComponent implements OnInit {
   page = 0;
   size = 5;
   constructor(private eventService: EventService) {
-    console.log("called");
+    console.log('called');
     eventService.getEvents(this.page, this.size).subscribe((value: Event[]) => {
         this.events = value;
         console.log(this.page);
-        console.log(value)
+        console.log(value);
         this.events.forEach((event: Event) => {
           this.cards.push(new InfoCard( event.title, event.shortText));
         });

@@ -10,6 +10,7 @@ import {ToastComponent} from './toast/toast/toast.component';
 import {ToastService} from './toast/toast.service';
 import {ImageService} from './imagemanager/image.service';
 import {NewsService} from './news/news.service';
+import {EventService} from './events/events.service';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {SteleksApiInterceptor} from './network/steleks-api-interceptor';
 import {AuthService} from './auth.service';
@@ -43,6 +44,7 @@ import {AuthService} from './auth.service';
     ToastService,
     AuthService,
     NewsService,
+    EventService,
   ],
   declarations: [
     InfocardComponent,

@@ -6,7 +6,6 @@ import {MatDatepickerModule, MatGridListModule, MatListModule, MatProgressBarMod
 import { CammonModule } from '../common/common.module';
 import { InfiniteScrollModule } from 'angular2-infinite-scroll';
 import { VirtualScrollModule } from 'angular2-virtual-scroll';
-import {EventService} from './events.service';
 
 @NgModule({
   imports: [
@@ -25,9 +24,6 @@ import {EventService} from './events.service';
   ],
   exports: [
     EventsRoutingModule,
-  ],
-  providers: [
-    EventService,
   ]
 })
 export class EventsModule { }
