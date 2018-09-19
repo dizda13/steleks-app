@@ -7,8 +7,9 @@ export class EventService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getEvents(): Observable<Event[]> {
-     return this.httpClient.get('events/realEvents').map(value => <Event[]>value);
+  getEvents(page: number = 0, size: number = 1000): Observable<Event[]> {
+     return this.httpClient.get(`events/realEvents?page=${page}&size=${size}`)
+       .map((value: any) => <Event[]>value._embedded.events.content);
   }
 }
 

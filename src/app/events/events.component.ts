@@ -11,16 +11,23 @@ export class EventsComponent implements OnInit {
 
   selectedDate: Date = new Date();
   cards: InfoCard[] = [];
-  public isFullListDisplayed = false;
+  public loadMore = true;
   isLoading = false;
   events: Event[];
-
-  constructor(private event: EventService) {
-    event.getEvents().subscribe((value: Event[]) => { this.events = value; });
-    for (let i = 0; i < 5; i++) {
-      this.counter++;
-      this.cards.push(new InfoCard('Test' + this.counter, 'Testing stuff'));
-    }
+  page = 0;
+  size = 5;
+  constructor(private eventService: EventService) {
+    console.log("called");
+    eventService.getEvents(this.page, this.size).subscribe((value: Event[]) => {
+        this.events = value;
+        console.log(this.page);
+        console.log(value)
+        this.events.forEach((event: Event) => {
+          this.cards.push(new InfoCard( event.title, event.shortText));
+        });
+        console.log(this.cards);
+        this.page++;
+    });
   }
 
   viewPortItems: any;
@@ -32,20 +39,25 @@ export class EventsComponent implements OnInit {
 
 
   onScroll(nesto: any) {
+    if (!this.loadMore) {
+      return;
+    }
     if (nesto.end !== this.cards.length || this.isLoading) {
       return;
     }
     this.isLoading = true;
-    setTimeout(() => {
-      this.isLoading = false;
-
-      const someArray: any[] = [];
-      for (let i = 0; i < 5; i++) {
-        this.counter++;
-        someArray.push(new InfoCard('Test' + this.counter, 'Testing stuff'));
-      }
-      this.cards = this.cards.concat(someArray);
-    }, 1000);
+    const someArray: any[] = [];
+    this.eventService.getEvents(this.page, this.size).subscribe((value: Event[]) => {
+        if (value.length === 0) {
+          this.loadMore = false;
+        }
+        value.forEach((event: Event) => {
+          someArray.push(new InfoCard(event.title, event.shortText));
+        });
+        this.events.concat(value);
+        this.isLoading = false;
+        this.page++;
+        this.cards = this.cards.concat(someArray);
+    });
   }
-
 }
