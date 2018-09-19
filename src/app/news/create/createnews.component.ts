@@ -5,6 +5,7 @@ import {InfoCard} from '../../common/card/infocard/infocard.model';
 import {FormControl, Validators} from '@angular/forms';
 import {MatDialog} from '@angular/material';
 import {ImagemanagerComponent} from '../../common/imagemanager/imagemanager.component';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-createnews',
@@ -25,7 +26,7 @@ export class CreateNewsComponent implements OnInit {
 
   formControls: FormControl[] = [this.titleFormControl, this.contentFormControl];
 
-  constructor(public dialog: MatDialog, private newsService: NewsService) {
+  constructor(public dialog: MatDialog, private newsService: NewsService, private router: Router) {
     this.news = new News(0, '', '', '', []);
     this.generatedCard = this.news.toInfoCard();
   }
@@ -43,6 +44,7 @@ export class CreateNewsComponent implements OnInit {
     console.log('SAVING!');
     this.newsService.addNews(this.news).subscribe(result => {
       console.log('Got some result');
+      this.router.navigate(['/steleks-feed']);
     });
   }
 

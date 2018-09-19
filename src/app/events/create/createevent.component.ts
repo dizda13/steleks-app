@@ -1,10 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {News} from './../../news/news.model';
 import {InfoCard} from '../../common/card/infocard/infocard.model';
 import {FormControl, Validators} from '@angular/forms';
 import {MatDialog} from '@angular/material';
 import {ImagemanagerComponent} from '../../common/imagemanager/imagemanager.component';
 import {EventService} from '../../common/events/events.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-createevent',
@@ -25,7 +26,7 @@ export class CreateEventComponent implements OnInit {
 
   formControls: FormControl[] = [this.titleFormControl, this.contentFormControl];
 
-  constructor(public dialog: MatDialog, private eventService: EventService) {
+  constructor(public dialog: MatDialog, private eventService: EventService, private router: Router) {
     this.events = new News(0, '', '', '', []);
     this.generatedCard = this.events.toInfoCard();
   }
@@ -43,6 +44,7 @@ export class CreateEventComponent implements OnInit {
     console.log('SAVING!');
     this.eventService.addEvent(this.events).subscribe(result => {
       console.log('Got some result');
+      this.router.navigate(['/događaji']);
     });
   }
 

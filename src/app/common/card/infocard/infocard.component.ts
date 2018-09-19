@@ -26,7 +26,10 @@ export class InfocardComponent implements OnInit, OnChanges {
   }
 
   getStyle(): String {
-    return InfoCardStyle[this.model.getStyle()];
+    if(this.model) {
+      return InfoCardStyle[this.model.getStyle()];
+    }
+    return null;
   }
 
   showContentImage(): boolean {
