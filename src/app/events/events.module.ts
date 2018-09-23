@@ -16,6 +16,7 @@ import {CreateEventComponent} from './create/createevent.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SlideshowModule} from 'ng-simple-slideshow';
 import {RouterModule} from '@angular/router';
+import {EventsContainerComponent} from './container/eventcontainer.component';
 
 @NgModule({
   imports: [
@@ -47,10 +48,12 @@ import {RouterModule} from '@angular/router';
   declarations: [
     EventsComponent,
     CreateEventComponent,
+    EventsContainerComponent,
   ],
   exports: [
     EventsRoutingModule,
     CreateEventComponent,
+    EventsContainerComponent,
   ],
   providers: [
     EventService,

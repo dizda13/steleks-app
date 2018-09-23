@@ -24,7 +24,7 @@ class SummaryCard extends InfoCard {
     } else {
       infoStyle = InfoCardStyle.SmallImage;
     }
-
+    console.log(imgLink);
     super(title, content, false, [imgLink], actions, infoStyle);
   }
 

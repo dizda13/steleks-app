@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {InfoCard} from '../common/card/infocard/infocard.model';
+import {InfoCard, InfoCardStyle} from '../common/card/infocard/infocard.model';
 import {Event, EventService} from '../common/events/events.service';
+import {SummaryCard} from '../common/card/summarycard/summarycard.model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-events',
@@ -10,28 +12,28 @@ import {Event, EventService} from '../common/events/events.service';
 export class EventsComponent implements OnInit {
 
   selectedDate: Date = new Date();
-  cards: InfoCard[] = [];
+  cards: SummaryCard[] = [];
   public loadMore = true;
   isLoading = false;
   events: Event[];
   page = 0;
   size = 5;
-  constructor(private eventService: EventService) {
-    console.log('called');
+  defulatImg = 'https://www.mancinifoods.com/site/wp-content/uploads/2018/05/no-thumbnail.png';
+  constructor(private eventService: EventService, private router: Router) {
     eventService.getEvents(this.page, this.size).subscribe((value: Event[]) => {
         this.events = value;
-        console.log(this.page);
-        console.log(value);
         this.events.forEach((event: Event) => {
-          this.cards.push(new InfoCard( event.title, event.shortText));
+          this.cards.push(new SummaryCard(
+            event.title,
+            event.shortText,
+            this.getCallback(event.id),
+            event.mediaSet.length ? event.mediaSet[0] : this.defulatImg));
         });
-        console.log(this.cards);
         this.page++;
     });
   }
 
   viewPortItems: any;
-  counter = 0;
 
   ngOnInit() {
 
@@ -52,12 +54,20 @@ export class EventsComponent implements OnInit {
           this.loadMore = false;
         }
         value.forEach((event: Event) => {
-          someArray.push(new InfoCard(event.title, event.shortText));
+          someArray.push(new SummaryCard(
+            event.title,
+            event.shortText,
+            this.getCallback(event.id),
+            event.mediaSet.length ? event.mediaSet[0] : this.defulatImg ));
         });
         this.events.concat(value);
         this.isLoading = false;
         this.page++;
         this.cards = this.cards.concat(someArray);
     });
+  }
+
+  getCallback(id: number) {
+    return () => this.router.navigate(['događaji', id]);
   }
 }

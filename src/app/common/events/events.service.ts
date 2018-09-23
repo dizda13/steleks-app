@@ -10,7 +10,14 @@ export class EventService {
 
   getEvents(page: number = 0, size: number = 1000): Observable<Event[]> {
      return this.httpClient.get(`events/realEvents?page=${page}&size=${size}`)
-       .map((value: any) => <Event[]>value._embedded.events.content);
+       .map((value: any) => {
+         const events: any[] = value._embedded.events.content;
+         events.forEach((event: any) => {event.mediaSet = event.mediaSet.map((media: any): Event => {
+           return media.contentUrl;
+         });
+         });
+         return <Event[]>events;
+       });
   };
   addEvent(event: News): Observable<any> {
     const newsData = new Event();
@@ -43,6 +50,6 @@ export class Event {
   dateTime: Date;
   duration: number;
   medias: ImageData[];
-  mediaSet: ImageData[];
+  mediaSet: string[];
 }
 

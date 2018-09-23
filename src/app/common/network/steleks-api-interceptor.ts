@@ -9,7 +9,6 @@ export class SteleksApiInterceptor extends BaseApiInterceptor {
 
   public get headers(): HttpHeaders {
     let headers;
-    console.log(localStorage.getItem('token'));
     if (localStorage.getItem('token')) {
       headers = new HttpHeaders({'Authorization': localStorage.getItem('token')});
     } else {

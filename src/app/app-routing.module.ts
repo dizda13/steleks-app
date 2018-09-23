@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {LoginModule} from './login/login.module';
 
 const routes: Routes = [
   // Fallback when no prior route is matched
@@ -11,6 +12,7 @@ const routes: Routes = [
   {path: 'događaji', loadChildren: './events/events.module#EventsModule'},
   {path: 'novosti', loadChildren: './news/news.module#NewsModule'},
   {path: 'profil', loadChildren: './profile/profile.module#ProfileModule'},
+  {path: 'login', loadChildren: './login/login.module#LoginModule'},
   //   ]
   // }
 ];

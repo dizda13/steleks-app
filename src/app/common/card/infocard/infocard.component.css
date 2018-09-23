@@ -45,3 +45,10 @@ slideshow {
   display: block;
 }
 
+div.arrow-container.next {
+  z-index: 5 !important;
+}
+
+.arrow-container{
+  z-index: 5 !important;
+}

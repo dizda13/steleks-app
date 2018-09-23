@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { EventsComponent } from './events.component';
 import {CreateEventComponent} from './create/createevent.component';
+import {NewscontainerComponent} from '../news/container/newscontainer.component';
+import {EventsContainerComponent} from './container/eventcontainer.component';
 
 const routes: Routes = [
   // Fallback when no prior route is matched
@@ -12,6 +14,10 @@ const routes: Routes = [
   {
     path: 'novi',
     component: CreateEventComponent,
+  },
+  {
+    path: ':id',
+    component: EventsContainerComponent
   }
 ];
 

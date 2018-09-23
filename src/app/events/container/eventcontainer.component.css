@@ -1,0 +1,12 @@
+.news-content {
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+  margin-top: -8px;
+}
+
+@media (max-width: 600px) {
+  .news-content {
+    width: 100%;
+  }
+}

@@ -1,5 +1,5 @@
 <mat-card [ngClass]="getStyle()" *ngIf="model" class="info-card">
-  <slideshow [ngClass]="getStyle()" *ngIf="showSlideShow()" mat-card-image [imageUrls]="model.imgLinks"></slideshow>
+  <slideshow [ngClass]="getStyle()" *ngIf="showSlideShow()" mat-card-image [imageUrls]="model.imgLinks" style="z-index: 50;"></slideshow>
 	<img [ngClass]="getStyle()" *ngIf="showTopImage()" mat-card-image src="{{getSingleImage()}}" alt=""/>
 	<mat-card-content [ngClass]="getStyle()">
 	<img [ngClass]="getStyle()" *ngIf="showContentImage()" mat-card-image src="{{getSingleImage()}}" alt=""/>

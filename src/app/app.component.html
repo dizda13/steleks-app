@@ -2,28 +2,13 @@
 
   <mat-sidenav #sidenav mode="over" [(opened)]="opened" (opened)="events.push('open!')" (closed)="events.push('close!')" style="width:240px;">
     <img class="sidebar-cover" src="https://i.ytimg.com/vi/lt0WQ8JzLz4/maxresdefault.jpg">
-    <div *ngIf="!isLoggedIn() && !loggedInClicked" (click)="changeInput()" class="userData login">
-      <button *ngIf="!loggedInClicked" class="login-button" mat-button>Prijavi se</button>
-    </div>
-    <div>
-      <form *ngIf="!isLoggedIn() && loggedInClicked" class="example-form input-credencials" style="background-color: transparent !important; color: white">
-        <mat-form-field class="example-full-width">
-              <input matInput placeholder="Korisnicko ime" (keyup)="onKey($event, 'username')" [value]="username">
-        </mat-form-field>
-
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Lozinka" (keyup)="onKey($event, 'password')" [value]="password">
-        </mat-form-field>
-        <button class="login-button" mat-button (click)="login()">Prijavi se</button>
-      </form>
-    </div>
     <div *ngIf="isLoggedIn() && user" class="userData" routerLink="/profil" (click)="opened=false;" >
       <img class="circle" [src]="user.profilePictureUrl || defaultImg">
       <p class="username" >{{user.username}}</p>
       <p class="email">{{user.email}}</p>
     </div>
     <div>
-    <button mat-button *ngFor="let sidebarItem of this.sidebarItems" class="sideBarItems" [routerLink]="'/'+sidebarItem.toLowerCase().replace(' ','-')" (click)="opened=false;">
+    <button mat-button *ngFor="let sidebarItem of this.sidebarItems" class="sideBarItems" [routerLink]="sidebarItem !== 'Odjavi se' ? '/'+sidebarItem.toLowerCase().replace(' ','-') : '/login'" (click)="navi(sidebarItem)">
       {{sidebarItem}}
     </button>
     </div>
@@ -34,7 +19,7 @@
       <button mat-button (click)="sidenav.toggle()" style="min-width:50px;padding:0%;">
         <mat-icon>reorder</mat-icon>
       </button>
-      <h3 class="title">Naslov</h3>
+      <h3 class="title">{{current}}</h3>
       <img src="../assets/steleks-logo.png" style="width:55px; right:10px; position:absolute">
     </mat-toolbar>
    <!--<div style="padding: 3%; ">-->
