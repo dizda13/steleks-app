@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -44,6 +43,8 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { CammonModule } from './common/common.module';
 import {ProfileModule} from './profile/profile.module';
 import {HttpClientModule} from '@angular/common/http';
+import {FileUploadModule} from 'ng2-file-upload';
+import {DocsAddDialogComponent} from './docs/docs-add-dialog/docs-dialog.component';
 
 @NgModule({
   declarations: [
@@ -91,9 +92,10 @@ import {HttpClientModule} from '@angular/common/http';
     CammonModule,
     AppRoutingModule,
     ProfileModule,
+    FileUploadModule,
   ],
   providers: [
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
