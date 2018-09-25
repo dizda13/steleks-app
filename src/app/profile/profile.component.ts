@@ -37,7 +37,7 @@ export class ProfileComponent {
 
   changeViewMode() {
     this.isInEditMode = !this.isInEditMode;
-    this.toastService.setMessage('dozda', TOAST_TYPE.SUCCESS);
+    this.toastService.setMessage('Mod za editovanje', TOAST_TYPE.ERROR);
   }
   updateUser() {
     this.profileService.updateProfile(this.user).subscribe(value => console.log(value));

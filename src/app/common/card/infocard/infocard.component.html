@@ -10,7 +10,7 @@
 			{{model.content}}
 			</p>
 		<mat-card-actions [ngClass]="getStyle()" *ngIf="model.actions.length">
-			<button mat-button *ngFor="let action of model.actions" (click)="action.onButtonClicked()">{{action.title}}</button>
+			<button mat-button *ngFor="let action of model.actions" (click)="action.onButtonClicked()">{{action.title}}<mat-icon>{{action.icon}}</mat-icon></button>
 		</mat-card-actions>
 	</div>
 	</mat-card-content>

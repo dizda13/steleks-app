@@ -1,0 +1,4 @@
+<div *ngFor="let card of forumCards" style="width: 30%; display: inline-block" class="">
+  <info-card  [model]="card"></info-card>
+</div>
+<button class="mat-fab-bottom-right" mat-fab color="primary" (click)="onAddClick()"><mat-icon>add</mat-icon></button>
