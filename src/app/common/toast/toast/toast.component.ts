@@ -31,6 +31,7 @@ export class ToastComponent implements OnInit {
 
   ngOnInit() {
     this.toastService.getMessage().subscribe(value => {
+      console.log('got something');
       this.toggleState();
       this.message = value[0];
       this.messageType = value[1];

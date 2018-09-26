@@ -3,6 +3,8 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {FormControl, Validators} from '@angular/forms';
 import {Image} from './image';
 import {ImageService} from './image.service';
+import {ToastService} from '../toast/toast.service';
+import {TOAST_TYPE} from '../toast/toast/toast-type.enum';
 
 @Component({
   selector: 'app-imagemanager',
@@ -21,7 +23,8 @@ export class ImagemanagerComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<ImagemanagerComponent>,
               @Inject(MAT_DIALOG_DATA) public data: any,
-              private imageService: ImageService) {
+              private imageService: ImageService,
+              private toastService: ToastService) {
   }
 
   onNoClick(): void {
@@ -35,10 +38,15 @@ export class ImagemanagerComponent implements OnInit {
   onAddClick(): void {
     this.urlFormControl.markAsTouched({onlySelf: true});
     if (this.urlFormControl.errors) {
+      this.toastService.setMessage('Please fill out url', TOAST_TYPE.ERROR);
       return;
     }
     this.imageService.addImages(new Image(this.url, 0)).subscribe(
-      img => this.images.push(img)
+      img => {
+        this.images.push(img);
+        this.toastService.setMessage('Added image successfully', TOAST_TYPE.SUCCESS);
+      },
+      err => this.toastService.setMessage('Failed adding image', TOAST_TYPE.ERROR)
     );
   }
 
@@ -51,6 +59,7 @@ export class ImagemanagerComponent implements OnInit {
   }
 
   onImageSelected(i: number) {
+    this.toastService.setMessage('Selected an image');
     this.dialogRef.close({url: this.images[i].url, img: this.images[i]});
   }
 }

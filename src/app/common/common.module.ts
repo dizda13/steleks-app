@@ -43,7 +43,6 @@ import {NewsComponent} from './display/news.component';
       useClass: SteleksApiInterceptor,
       multi: true
     },
-    ToastService,
     AuthService,
     NewsService,
     EventService,

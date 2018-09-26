@@ -24,14 +24,14 @@ export class DashboardComponent implements OnInit {
   constructor(private router: Router, private profileService: ProfileService,
               private newsService: NewsService, private eventService: EventService,
               private toastService: ToastService) {
+    this.toastService.getMessage().subscribe(value => console.log(value));
   }
 
   ngOnInit() {
     this.profileService.getLoggedInUser().subscribe(user => {
       this.headerCard = new InfoCard(
         'Dobrodošao ' + user.firstName + '!',
-        'Danas je ' + 'DATUM_TODANAS' + ' i još uvijek nemaš pojma. Danas se očekuje da se prezivaš '
-        + user.lastName + '. Tvoje korisnicko ime je zajebano (' + user.username + '). Uzivaj. Sa tobom je tvoj Steleks!'
+        'Danas je ' + '19. Mart 2018.' + ' Da li ste spremni za STEM games? Početak se bliži. Uživajte. Sa Vama je Vaš Steleks.'
       );
     });
     this.newsService.getNews().subscribe((news: News[]) => {
@@ -44,7 +44,7 @@ export class DashboardComponent implements OnInit {
       for (const singleEvent of events) {
         const actions: Action[] = [];
         const readMoreAction: Action = new Action('Read more', (name: string) => {
-          this.router.navigate(['events', singleEvent.id]);
+          this.router.navigate(['događaji', singleEvent.id]);
         });
         const registerAction: Action = new Action('Register', (name: string) => {
           console.log('REGISTERED');
@@ -55,14 +55,6 @@ export class DashboardComponent implements OnInit {
         this.forumCards.push(new InfoCard(singleEvent.title, singleEvent.shortText, false, [''], actions));
       }
     });
-  }
-
-  printOutput(val: String) {
-    if (val === 'Istina') {
-      console.log('TACNO JE');
-    } else {
-      console.log('NIJE TACNO');
-    }
   }
 
   onAddClick() {

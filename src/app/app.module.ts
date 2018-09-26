@@ -41,6 +41,7 @@ import {
 } from '@angular/material';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { CammonModule } from './common/common.module';
+import { ToastService } from './common/toast/toast.service';
 import {ProfileModule} from './profile/profile.module';
 import {HttpClientModule} from '@angular/common/http';
 import {FileUploadModule} from 'ng2-file-upload';
@@ -95,6 +96,7 @@ import {DocsAddDialogComponent} from './docs/docs-add-dialog/docs-dialog.compone
     FileUploadModule,
   ],
   providers: [
+    ToastService,
   ],
   bootstrap: [AppComponent],
 })

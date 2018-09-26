@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {News} from '../news.model';
 import {NewsService} from '../../common/news/news.service';
+import {ToastService} from '../../common/toast/toast.service';
+import {TOAST_TYPE} from '../../common/toast/toast/toast-type.enum';
 import {InfoCard} from '../../common/card/infocard/infocard.model';
 import {FormControl, Validators} from '@angular/forms';
 import {MatDialog} from '@angular/material';
@@ -26,7 +28,8 @@ export class CreateNewsComponent implements OnInit {
 
   formControls: FormControl[] = [this.titleFormControl, this.contentFormControl];
 
-  constructor(public dialog: MatDialog, private newsService: NewsService, private router: Router) {
+  constructor(public dialog: MatDialog, private newsService: NewsService,
+              private toastService: ToastService, private router: Router) {
     this.news = new News(0, '', '', '', []);
     this.generatedCard = this.news.toInfoCard();
   }
@@ -38,12 +41,14 @@ export class CreateNewsComponent implements OnInit {
     this.formControls.forEach(control => control.markAsTouched({onlySelf: true}));
     for (const control of this.formControls) {
       if (control.errors) {
+        this.toastService.setMessage('Cant create news. Check fields', TOAST_TYPE.ERROR);
         return;
       }
     }
     console.log('SAVING!');
     this.newsService.addNews(this.news).subscribe(result => {
       console.log('Got some result');
+      this.toastService.setMessage('Successfully created a new post!', TOAST_TYPE.SUCCESS);
       this.router.navigate(['/steleks-feed']);
     });
   }
@@ -54,6 +59,7 @@ export class CreateNewsComponent implements OnInit {
 
   onRemoveClicked(index: number) {
     console.log('Removing ' + index);
+    this.toastService.setMessage('Removed an image from post');
     this.news.images.splice(index, 1);
   }
 
