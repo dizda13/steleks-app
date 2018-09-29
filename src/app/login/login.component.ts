@@ -18,14 +18,14 @@ export class LoginComponent {
 
   @Output() outUser = new EventEmitter<UserData>();
   username: string = "steleks_admin";
-  passoword: string = "comein123";
+  password: string = "comein123";
   user: UserData;
   constructor(private loginService: AuthService, private profileService: ProfileService, private router: Router) {
 
   }
 
   getPass(event: any) {
-    this.passoword = event.target.value;
+    this.password = event.target.value;
   }
 
   getUser(event: any) {
@@ -33,7 +33,7 @@ export class LoginComponent {
   }
 
   login() {
-    this.loginService.login(this.username, this.passoword).flatMap((nesto: any) => {
+    this.loginService.login(this.username, this.password).flatMap((nesto: any) => {
       return this.profileService.getLoggedInUser();
     }).subscribe((value => {
       this.user = <UserData>value; this.outUser.emit(this.user);

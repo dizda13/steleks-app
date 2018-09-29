@@ -6,7 +6,7 @@
     </mat-form-field>
 
     <mat-form-field class="example-full-width hepek" style="display: block">
-      <input matInput [type]="'password'" placeholder="Lozinka" [(value)]="passoword" >
+      <input matInput type="password" placeholder="Lozinka" [(value)]="password" >
     </mat-form-field>
     <button *ngIf="!loggedInClicked" (click)="login()" class="login-button" style="background-color: #ffc107" mat-button>Prijavi se</button>
   </form>
