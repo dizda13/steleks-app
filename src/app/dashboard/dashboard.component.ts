@@ -39,8 +39,13 @@ export class DashboardComponent implements OnInit {
       });
     } else {
         this.headerCard = new InfoCard(
-          'Dobrodošli na Steleks web.',
-          'Danas je ' + '19. Mart 2018.' + ' Da li ste član Steleksa? Ulogujte se sa vašim podacima klikom na dugme u lijevom meniju.'
+          'Dobrodošao na Steleks web.',
+          'Danas je ' + '19. Mart 2018.' + ' Da li si član Steleksa?',
+          false,
+          [''],
+          [new Action('Prijavi se', (name: string) => {
+            this.router.navigate(['login']);
+          }, 'account_box')]
         );
     }
     this.newsService.getNews().subscribe((news: News[]) => {
@@ -60,7 +65,9 @@ export class DashboardComponent implements OnInit {
           this.toastService.setMessage('Uspješna prijava na događaj: ' + singleEvent.title, TOAST_TYPE.SUCCESS);
         }, 'calendar_today');
         actions.push(readMoreAction);
-        actions.push(registerAction);
+        if (this.authService.isLoggedIn()) {
+          actions.push(registerAction);
+        }
         this.forumCards.push(new InfoCard(singleEvent.title, singleEvent.shortText, false, [''], actions));
       }
     });
