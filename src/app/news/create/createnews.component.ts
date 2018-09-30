@@ -41,14 +41,14 @@ export class CreateNewsComponent implements OnInit {
     this.formControls.forEach(control => control.markAsTouched({onlySelf: true}));
     for (const control of this.formControls) {
       if (control.errors) {
-        this.toastService.setMessage('Cant create news. Check fields', TOAST_TYPE.ERROR);
+        this.toastService.setMessage('Kreiranje novosti nije uspjelo. Provjerite unesene podatke.', TOAST_TYPE.ERROR);
         return;
       }
     }
     console.log('SAVING!');
     this.newsService.addNews(this.news).subscribe(result => {
       console.log('Got some result');
-      this.toastService.setMessage('Successfully created a new post!', TOAST_TYPE.SUCCESS);
+      this.toastService.setMessage('Uspješno kreirana novost!', TOAST_TYPE.SUCCESS);
       this.router.navigate(['/steleks-feed']);
     });
   }
@@ -59,7 +59,7 @@ export class CreateNewsComponent implements OnInit {
 
   onRemoveClicked(index: number) {
     console.log('Removing ' + index);
-    this.toastService.setMessage('Removed an image from post');
+    this.toastService.setMessage('Slika obrisana sa novosti.');
     this.news.images.splice(index, 1);
   }
 

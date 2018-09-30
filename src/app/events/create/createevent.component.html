@@ -1,11 +1,11 @@
 <div class="create-news-container">
   <mat-card>
     <mat-tab-group (selectedTabChange)="onTabChanged()">
-      <mat-tab label="Edit">
+      <mat-tab label="Kreiranje">
         <div class="news-edit">
           <mat-form-field class="create-news-input">
-            <input matInput placeholder="Title" [(ngModel)]="events.title" [formControl]="titleFormControl">
-            <mat-error *ngIf="titleFormControl.hasError('required')">Field required</mat-error>
+            <input matInput placeholder="Naslov" [(ngModel)]="events.title" [formControl]="titleFormControl">
+            <mat-error *ngIf="titleFormControl.hasError('required')">Obavezno polje</mat-error>
           </mat-form-field>
           <mat-grid-list cols="5" rowHeight="2:1">
             <mat-grid-tile *ngFor="let img of events.images; index as i">
@@ -21,26 +21,26 @@
             </mat-grid-tile>
           </mat-grid-list>
           <mat-form-field class="create-news-input">
-            <textarea matInput placeholder="Short Content" matTextareaAutosize matAutosizeMinRows="5"
+            <textarea matInput placeholder="Kratki sadržaj" matTextareaAutosize matAutosizeMinRows="5"
                       matAutosizeMaxRows="20" [(ngModel)]="events.content" [formControl]="contentFormControl"></textarea>
-            <mat-error *ngIf="contentFormControl.hasError('required')">Field required</mat-error>
+            <mat-error *ngIf="contentFormControl.hasError('required')">Obavezno polje</mat-error>
           </mat-form-field>
           <mat-form-field class="create-news-input">
-            <textarea matInput placeholder="Content" matTextareaAutosize matAutosizeMinRows="5"
+            <textarea matInput placeholder="Sadržaj" matTextareaAutosize matAutosizeMinRows="5"
                       matAutosizeMaxRows="100" [(ngModel)]="events.fullContent" [formControl]="contentFormControl"></textarea>
-            <mat-error *ngIf="contentFormControl.hasError('required')">Field required</mat-error>
+            <mat-error *ngIf="contentFormControl.hasError('required')">Obavezno polje</mat-error>
           </mat-form-field>
         </div>
       </mat-tab>
-      <mat-tab label="Preview Summary">
+      <mat-tab label="Pregled skraćene verzije">
         <info-card [model]="events.toSummaryCardWithNoLink()"></info-card>
       </mat-tab>
-      <mat-tab label="Preview Full">
+      <mat-tab label="Puni pregled">
         <app-news [model]="events"></app-news>
       </mat-tab>
     </mat-tab-group>
     <mat-card-actions>
-      <button mat-button (click)="onSaveClicked()">Save</button>
+      <button mat-button (click)="onSaveClicked()">Sačuvaj</button>
     </mat-card-actions>
   </mat-card>
 </div>

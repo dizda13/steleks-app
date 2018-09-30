@@ -41,14 +41,14 @@ export class CreateEventComponent implements OnInit {
     this.formControls.forEach(control => control.markAsTouched({onlySelf: true}));
     for (const control of this.formControls) {
       if (control.errors) {
-        this.toastService.setMessage('Cant create event. Check fields', TOAST_TYPE.ERROR);
+        this.toastService.setMessage('Kreiranja događaja nije uspjelo. Provjerite unesene podatke.', TOAST_TYPE.ERROR);
         return;
       }
     }
     console.log('SAVING!');
     this.eventService.addEvent(this.events).subscribe(result => {
       console.log('Got some result');
-      this.toastService.setMessage('Successfully created a new event!', TOAST_TYPE.SUCCESS);
+      this.toastService.setMessage('Uspješno kreiran novi događaj!', TOAST_TYPE.SUCCESS);
       this.router.navigate(['/događaji']);
     });
   }
@@ -59,7 +59,7 @@ export class CreateEventComponent implements OnInit {
 
   onRemoveClicked(index: number) {
     console.log('Removing ' + index);
-      this.toastService.setMessage('Removed an image from event');
+      this.toastService.setMessage('Slika obrisana sa događaja.');
     this.events.images.splice(index, 1);
   }
 
