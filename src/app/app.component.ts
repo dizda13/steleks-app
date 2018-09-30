@@ -50,7 +50,7 @@ export class AppComponent implements AfterViewInit {
   ngAfterViewInit(): void {
   }
   isLoggedIn(){
-    return this.loginService.getToken() ? true : false;
+    return this.loginService.isLoggedIn();
   }
   changeInput() {
     this.loggedInClicked = true;
@@ -67,8 +67,13 @@ export class AppComponent implements AfterViewInit {
 
   updateSidebarItems() {
     console.log('Updating sidebar items');
-    this.sidebarItems.splice(this.sidebarItems.length - 1, 1);
+    this.sidebarItems.splice(0, this.sidebarItems.length);
+    this.sidebarItems.push('Steleks feed');
     if (this.loginService.isLoggedIn()) {
+      this.sidebarItems.push('Događaji');
+      this.sidebarItems.push('Forum');
+      this.sidebarItems.push('Elektrijada');
+      this.sidebarItems.push('Moji materijali');
       this.sidebarItems.push('Odjavi se');
     } else {
       this.sidebarItems.push('Prijavi se');
