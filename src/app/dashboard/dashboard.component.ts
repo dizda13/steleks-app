@@ -54,11 +54,11 @@ export class DashboardComponent implements OnInit {
         const actions: Action[] = [];
         const readMoreAction: Action = new Action('Pročitaj više', (name: string) => {
           this.router.navigate(['događaji', singleEvent.id]);
-        });
+        }, 'library_books');
         const registerAction: Action = new Action('Prijavi se', (name: string) => {
           console.log('REGISTERED');
           this.toastService.setMessage('Uspješna prijava na događaj: ' + singleEvent.title, TOAST_TYPE.SUCCESS);
-        });
+        }, 'calendar_today');
         actions.push(readMoreAction);
         actions.push(registerAction);
         this.forumCards.push(new InfoCard(singleEvent.title, singleEvent.shortText, false, [''], actions));
