@@ -4,7 +4,8 @@ enum InfoCardStyle {
   LargeImage,
   SplitCard,
   SmallImage,
-  Slideshow
+  Slideshow,
+  ProfileCard,
 }
 
 class InfoCard {
@@ -27,6 +28,16 @@ class InfoCard {
 
   getImages(): String[] {
     return this.imgLinks;
+  }
+
+  getTitle() {
+    return this.title;
+  }
+  setAction(actions: Action[]) {
+    this.actions = actions;
+  }
+  getAction(){
+    return this.actions;
   }
 
 }

@@ -1,0 +1,9 @@
+<h2>Podijeli sa:</h2>
+<mat-form-field class="example-full-width hepek" style="display: block">
+  <input matInput (keyup)="onKey($event)" type="search" placeholder="Pretraži" [(ngModel)]="searchString" >
+</mat-form-field>
+<virtual-scroll style="height: 80%;width:100%; display: block;" [items]="cards"
+                (update)="viewPortItems = $event" (change)="onScroll($event)">
+  <info-card *ngFor="let card of viewPortItems" [model]="card"></info-card>
+  <mat-progress-bar *ngIf="isLoading" mode="indeterminate" style="margin: 30px 0px"></mat-progress-bar>
+</virtual-scroll>

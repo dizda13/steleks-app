@@ -1,3 +1,6 @@
+<mat-form-field class="example-full-width hepek" style="display: block">
+  <input matInput (keyup)="onKey($event)" type="search" placeholder="Pretraži" [(ngModel)]="searchString" >
+</mat-form-field>
 <div *ngFor="let card of forumCards" style="width: 30%; display: inline-block" class="">
   <info-card  [model]="card"></info-card>
 </div>

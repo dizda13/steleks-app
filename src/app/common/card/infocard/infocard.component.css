@@ -53,4 +53,34 @@ div.arrow-container.next {
   z-index: 5 !important;
 }
 
+img.ProfileCard{
+  border-radius: 50%;
+  width: 75px;
+  height:75px;
+  z-index: 10;
+  margin: 2%;
+  float: left;
+}
 
+mat-card-title.ProfileCard {
+  display: none;
+}
+
+p.ProfileCard {
+  display: none;
+}
+
+mat-card-actions.ProfileCard {
+  line-height: 5;
+  float: right;
+  margin-right: 5%;
+}
+
+div.ProfileCard {
+  height: 85px;
+}
+
+h2.ProfileCard {
+  float: left;
+  line-height: 2.5;
+}

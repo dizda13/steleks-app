@@ -44,6 +44,10 @@ export class InfocardComponent implements OnInit, OnChanges {
     return this.model.getStyle() === InfoCardStyle.Slideshow;
   }
 
+  showProfileImg(): boolean {
+    return this.model.getStyle() === InfoCardStyle.ProfileCard;
+  }
+
   getSingleImage(): String {
     if (this.model.getImages().length === 0) {
       return '';

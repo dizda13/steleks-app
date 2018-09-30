@@ -20,6 +20,7 @@ export class EventsComponent implements OnInit {
   size = 5;
   defulatImg = 'https://www.mancinifoods.com/site/wp-content/uploads/2018/05/no-thumbnail.png';
   constructor(private eventService: EventService, private router: Router) {
+    console.log('called');
     eventService.getEvents(this.page, this.size).subscribe((value: Event[]) => {
         this.events = value;
         this.events.forEach((event: Event) => {

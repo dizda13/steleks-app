@@ -3,14 +3,16 @@
 	<img [ngClass]="getStyle()" *ngIf="showTopImage()" mat-card-image src="{{getSingleImage()}}" alt=""/>
 	<mat-card-content [ngClass]="getStyle()">
 	<img [ngClass]="getStyle()" *ngIf="showContentImage()" mat-card-image src="{{getSingleImage()}}" alt=""/>
-	<div [ngClass]="getStyle()">
-		<mat-card-title [ngClass]="getStyle()">{{model.title}}</mat-card-title>
-      <markdown *ngIf="useMarkdown()" [data]="model.content" class="mat-card-content-text"></markdown>
-			<p *ngIf="!useMarkdown()" [ngClass]="getStyle()" class="mat-card-content-text">
+    <div [ngClass]="getStyle()">
+      <img [ngClass]="getStyle()" *ngIf="showProfileImg()" mat-card-image src="{{getSingleImage()}}" alt=""/>
+      <h2 *ngIf="showProfileImg()" [ngClass]="getStyle()">{{model.title}}</h2>
+      <mat-card-title [ngClass]="getStyle()">{{model.title}}</mat-card-title>
+      <markdown *ngIf="useMarkdown() && model.content" [data]="model.content" class="mat-card-content-text"></markdown>
+			<p *ngIf="!useMarkdown() && model.content" [ngClass]="getStyle()" class="mat-card-content-text">
 			{{model.content}}
 			</p>
 		<mat-card-actions [ngClass]="getStyle()" *ngIf="model.actions.length">
-			<button mat-button *ngFor="let action of model.actions" (click)="action.onButtonClicked()">{{action.title}}<mat-icon>{{action.icon}}</mat-icon></button>
+			<button mat-button *ngFor="let action of model.actions" (click)="action.onButtonClicked()">{{action.title}}<mat-icon *ngIf="action.icon">{{action.icon}}</mat-icon></button>
 		</mat-card-actions>
 	</div>
 	</mat-card-content>
