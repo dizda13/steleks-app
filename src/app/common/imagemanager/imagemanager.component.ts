@@ -38,15 +38,15 @@ export class ImagemanagerComponent implements OnInit {
   onAddClick(): void {
     this.urlFormControl.markAsTouched({onlySelf: true});
     if (this.urlFormControl.errors) {
-      this.toastService.setMessage('Please fill out url', TOAST_TYPE.ERROR);
+      this.toastService.setMessage('Molimo popunite url', TOAST_TYPE.ERROR);
       return;
     }
     this.imageService.addImages(new Image(this.url, 0)).subscribe(
       img => {
         this.images.push(img);
-        this.toastService.setMessage('Added image successfully', TOAST_TYPE.SUCCESS);
+        this.toastService.setMessage('Slika uspješno dodana', TOAST_TYPE.SUCCESS);
       },
-      err => this.toastService.setMessage('Failed adding image', TOAST_TYPE.ERROR)
+      err => this.toastService.setMessage('Greška pri dodavanju slike', TOAST_TYPE.ERROR)
     );
   }
 
@@ -59,7 +59,7 @@ export class ImagemanagerComponent implements OnInit {
   }
 
   onImageSelected(i: number) {
-    this.toastService.setMessage('Selected an image');
+    this.toastService.setMessage('Izabrana slika');
     this.dialogRef.close({url: this.images[i].url, img: this.images[i]});
   }
 }

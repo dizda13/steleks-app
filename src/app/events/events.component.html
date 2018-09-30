@@ -7,7 +7,7 @@
     </div>
   </mat-grid-tile>
 
-  <mat-grid-tile [colspan]="3">
+  <mat-grid-tile *ngIf="cards && cards.length" [colspan]="3">
     <virtual-scroll style="height:90%;width:100%; display: inline-block;" [items]="cards"
                     (update)="viewPortItems = $event" (change)="onScroll($event)">
       <info-card *ngFor="let card of viewPortItems" [model]="card"></info-card>
