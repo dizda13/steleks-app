@@ -8,7 +8,7 @@
       <p class="email">{{user.email}}</p>
     </div>
     <div>
-    <button mat-button *ngFor="let sidebarItem of this.sidebarItems" class="sideBarItems" [routerLink]="sidebarItem !== 'Odjavi se' ? '/'+sidebarItem.toLowerCase().replace(' ','-') : '/login'" (click)="navi(sidebarItem)">
+    <button mat-button *ngFor="let sidebarItem of this.sidebarItems" class="sideBarItems" [routerLink]="(sidebarItem !== 'Odjavi se' && sidebarItem !== 'Prijavi se') ? '/'+sidebarItem.toLowerCase().replace(' ','-') : '/login'" (click)="navi(sidebarItem)">
       {{sidebarItem}}
     </button>
     </div>
@@ -16,7 +16,7 @@
 
   <mat-sidenav-content style="text-align: center;">
     <mat-toolbar style="text-align:center; box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); position: fixed; z-index: 100;">
-      <button mat-button (click)="sidenav.toggle()" style="min-width:50px;padding:0%;">
+      <button mat-button (click)="toggleSideBar()" style="min-width:50px;padding:0%;">
         <mat-icon>reorder</mat-icon>
       </button>
       <h3 class="title">{{current}}</h3>

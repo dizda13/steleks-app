@@ -15,7 +15,7 @@ class SummaryCard extends InfoCard {
               style: SummaryCardStyle = SummaryCardStyle.Large) {
     const actions: Action[] = [];
     if (readMoreCallback) {
-      actions.push(new Action('Read more', readMoreCallback));
+      actions.push(new Action('Pročitaj više', readMoreCallback, 'library_books'));
     }
 
     let infoStyle: InfoCardStyle;

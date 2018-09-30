@@ -23,6 +23,7 @@ export class AuthService {
     localStorage.removeItem('token');
     localStorage.removeItem('roles');
     localStorage.removeItem('userId');
+    localStorage.removeItem('loggedIn');
   }
 
   public getAuthObject() {
@@ -31,6 +32,18 @@ export class AuthService {
       roles: localStorage.getItem('roles'),
       userId: localStorage.getItem('userId'),
     };
+  }
+
+  public isLoggedIn() {
+    return localStorage.getItem('loggedIn') ? true : false;
+  }
+
+  public setLoggedIn() {
+    localStorage.setItem('loggedIn', 'yes');
+  }
+
+  public clearLoggedIn() {
+    localStorage.removeItem('loggedIn');
   }
 
   public getToken() {
