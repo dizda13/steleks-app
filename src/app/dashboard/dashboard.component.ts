@@ -4,6 +4,7 @@ import {Action} from '../common/card/action.model';
 import {ProfileService, UserData} from '../profile/profile.service';
 import {NewsService} from '../common/news/news.service';
 import {ToastService} from '../common/toast/toast.service';
+import {AuthService} from '../common/auth.service';
 import {TOAST_TYPE} from '../common/toast/toast/toast-type.enum';
 import {Event, EventService} from '../common/events/events.service';
 import {News} from '../news/news.model';
@@ -23,7 +24,8 @@ export class DashboardComponent implements OnInit {
 
   constructor(private router: Router, private profileService: ProfileService,
               private newsService: NewsService, private eventService: EventService,
-              private toastService: ToastService) {
+              private toastService: ToastService,
+              private authService: AuthService) {
     this.toastService.getMessage().subscribe(value => console.log(value));
   }
 
@@ -59,6 +61,10 @@ export class DashboardComponent implements OnInit {
 
   onAddClick() {
     this.router.navigate(['novosti']);
+  }
+
+  shouldShowAddButton() {
+    return this.authService.isLoggedIn();
   }
 
 }

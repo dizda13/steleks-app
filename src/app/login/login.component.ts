@@ -37,6 +37,7 @@ export class LoginComponent {
       return this.profileService.getLoggedInUser();
     }).subscribe((value => {
       this.user = <UserData>value; this.outUser.emit(this.user);
+      this.loginService.setLoggedIn();
       this.router.navigate(['/steleks-feed']);
     }));
   }
